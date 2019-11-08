@@ -3,7 +3,6 @@ package service.prototype;
 import java.util.List;
 
 import entity.Flight;
-import util.MiniPager;
 
 /**
  * 业务接口
@@ -13,4 +12,7 @@ import util.MiniPager;
 public interface IFlightService {
 	
 	List<Flight> listFlight(int pageNo,int pageSize);
+	
+	int saveOrUpdate(Flight flight);
+	int delete(int flightid);
 }

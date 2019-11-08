@@ -8,7 +8,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import dao.prototype.IAirportDao;
-import entity.Admin;
 import entity.Airport;
 
 

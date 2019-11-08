@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
  * SalesDao实现类
  */
 import dao.prototype.ISalesDao;
-import entity.Admin;
 import entity.Sales;
 
 @Repository("salesDaoSpringImpl")

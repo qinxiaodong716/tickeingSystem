@@ -20,4 +20,15 @@ public class FlightServiceDaoImpl implements IFlightService{
 		return flightDao.find((pageNo-1)*pageSize, pageSize);
 	}
 
+	@Override
+	public int saveOrUpdate(Flight flight) {
+		return flightDao.saveOrUpdate(flight);
+	}
+
+	@Override
+	public int delete(int flightid) {
+		return flightDao.delete(flightid);
+	}
+	
+
 }

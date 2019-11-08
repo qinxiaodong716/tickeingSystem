@@ -6,25 +6,22 @@ package entity;
  */
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class Flight implements Serializable{
 	
 	private static final long serialVersionUID = 2427165183041369292L;
 	private int flightId;
 	private String flightNumber;
-	private Date departureDate;
+	private String departureDate;
 	private int firstClassRemainSeats;
 	private int businessClassRemainSeats;
 	private int economyClassRemainSeats;
 	private double seasonDiscount;
 	
 	public Flight() {}
-	
-	
-	
-	public Flight(String flightNumber, Date departureDate, int firstClassRemainSeats, int businessClassRemainSeats,
-			int economyClassRemainSeats, double seasonDiscount) {
+
+	public Flight( String flightNumber, String departureDate, int firstClassRemainSeats,
+			int businessClassRemainSeats, int economyClassRemainSeats, double seasonDiscount) {
 		super();
 		this.flightNumber = flightNumber;
 		this.departureDate = departureDate;
@@ -33,10 +30,8 @@ public class Flight implements Serializable{
 		this.economyClassRemainSeats = economyClassRemainSeats;
 		this.seasonDiscount = seasonDiscount;
 	}
-
-
-
-	public Flight(int flightId, String flightNumber, Date departureDate, int firstClassRemainSeats,
+	
+	public Flight(int flightId, String flightNumber, String departureDate, int firstClassRemainSeats,
 			int businessClassRemainSeats, int economyClassRemainSeats, double seasonDiscount) {
 		super();
 		this.flightId = flightId;
@@ -56,19 +51,19 @@ public class Flight implements Serializable{
 		this.flightId = flightId;
 	}
 
-	public String getflightNumber() {
+	public String getFlightNumber() {
 		return flightNumber;
 	}
 
-	public void setflightNumber(String flightNumber) {
+	public void setFlightNumber(String flightNumber) {
 		this.flightNumber = flightNumber;
 	}
 
-	public Date getdepartureDate() {
+	public String getDepartureDate() {
 		return departureDate;
 	}
 
-	public void setdepartureDate(Date departureDate) {
+	public void setDepartureDate(String departureDate) {
 		this.departureDate = departureDate;
 	}
 
@@ -104,7 +99,6 @@ public class Flight implements Serializable{
 		this.seasonDiscount = seasonDiscount;
 	}
 
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -112,9 +106,9 @@ public class Flight implements Serializable{
 		result = prime * result + businessClassRemainSeats;
 		result = prime * result + ((departureDate == null) ? 0 : departureDate.hashCode());
 		result = prime * result + economyClassRemainSeats;
-		result = prime * result + ((flightNumber == null) ? 0 : flightNumber.hashCode());
 		result = prime * result + firstClassRemainSeats;
 		result = prime * result + flightId;
+		result = prime * result + ((flightNumber == null) ? 0 : flightNumber.hashCode());
 		long temp;
 		temp = Double.doubleToLongBits(seasonDiscount);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
@@ -139,14 +133,14 @@ public class Flight implements Serializable{
 			return false;
 		if (economyClassRemainSeats != other.economyClassRemainSeats)
 			return false;
+		if (firstClassRemainSeats != other.firstClassRemainSeats)
+			return false;
+		if (flightId != other.flightId)
+			return false;
 		if (flightNumber == null) {
 			if (other.flightNumber != null)
 				return false;
 		} else if (!flightNumber.equals(other.flightNumber))
-			return false;
-		if (firstClassRemainSeats != other.firstClassRemainSeats)
-			return false;
-		if (flightId != other.flightId)
 			return false;
 		if (Double.doubleToLongBits(seasonDiscount) != Double.doubleToLongBits(other.seasonDiscount))
 			return false;
@@ -160,6 +154,8 @@ public class Flight implements Serializable{
 				+ businessClassRemainSeats + ", economyClassRemainSeats=" + economyClassRemainSeats
 				+ ", seasonDiscount=" + seasonDiscount + "]";
 	}
+	
+	
 	
 	
 }

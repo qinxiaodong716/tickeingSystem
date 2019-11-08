@@ -35,4 +35,8 @@ public class TestPeopleDao {
 	public void testDelete() {
 		System.out.println(ipd.delete(8));
 	}
+	@Test
+	public void testFindAll() {
+		System.out.println(ipd.findAll(1, 10));
+	}
 }

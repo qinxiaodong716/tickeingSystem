@@ -11,4 +11,6 @@ import entity.Flight;
  */
 public interface IFlightDao {
 	List<Flight> find(int offset,int pageSize);
+	int saveOrUpdate(Flight flight);
+	int delete(int flightId);
 }

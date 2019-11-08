@@ -42,5 +42,11 @@ public class PeopleDaoSpringImpl implements IPeopleDao{
 		return jdbcTemplate.update("delete from people where people_id=?",
 				new Object[] {id});
 	}
+	@Override
+	public List<People> findAll(int offset, int pageSize) {
+		return jdbcTemplate.query("select * from people limit ?,?",
+				new Object[] {offset,pageSize},
+				new BeanPropertyRowMapper<People>(People.class));
+	}
 
 }

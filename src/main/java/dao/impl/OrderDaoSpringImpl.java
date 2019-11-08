@@ -7,9 +7,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import dao.prototype.IAdminDao;
 import dao.prototype.IOrderDao;
-import entity.Admin;
 import entity.Order;
 
 @Repository("orderDaoSpringImpl")

@@ -6,4 +6,6 @@ import entity.FlightScheduler;
 
 public interface IFlightSchedulerDao {
 	List<FlightScheduler> find(int offset,int pageSize);
+	int saveOrUpdate(FlightScheduler flightScheduler);
+	int delete(String flightNumber);
 }
