@@ -18,7 +18,7 @@ import com.alibaba.druid.pool.DruidDataSource;
  */
 @Configuration
 @PropertySource("classpath:jdbc.properties")
-public class JDBConfig {
+public class JDBCConfig {
 	//--1.配置信息
 	@Value("${jdbc.driverClass}")
 	private String driver;

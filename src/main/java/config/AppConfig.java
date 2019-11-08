@@ -13,8 +13,8 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
  * 应用配置类(Spring配置)相当于xml的替代者
  */
 @Configuration
-@ComponentScan({"dao","service","util"})
-@Import(JDBConfig.class)
+@ComponentScan({"dao","service","util","controller"})
+@Import(JDBCConfig.class)
 public class AppConfig extends WebMvcConfigurationSupport{
 	/*
 	 * jsp解析器

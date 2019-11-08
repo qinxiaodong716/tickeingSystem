@@ -12,43 +12,51 @@ public class Sales implements Serializable{
 	private static final long serialVersionUID = 2427165183041369292L;
 	private int salesId;
 	private int branchId;
-	private String name;
+	private String salesName;
 	private String password;
 	private String phone;
 	
 	public Sales() {}
-
-	public Sales(int salesId, int branchId, String name, String password, String phone) {
+	
+	public Sales(int branchId, String salesName, String password, String phone) {
 		super();
-		this.salesId = salesId;
 		this.branchId = branchId;
-		this.name = name;
+		this.salesName = salesName;
 		this.password = password;
 		this.phone = phone;
 	}
 
-	public int getsalesId() {
+	public Sales(int salesId, int branchId, String salesName, String password, String phone) {
+		super();
+		this.salesId = salesId;
+		this.branchId = branchId;
+		this.salesName = salesName;
+		this.password = password;
+		this.phone = phone;
+	}
+
+	public int getSalesId() {
 		return salesId;
 	}
 
-	public void setsalesId(int salesId) {
+	public void setSalesId(int salesId) {
 		this.salesId = salesId;
 	}
 
-	public int getbranchId() {
+	public int getBranchId() {
 		return branchId;
 	}
 
-	public void setbranchId(int branchId) {
+	public void setBranchId(int branchId) {
 		this.branchId = branchId;
 	}
 
-	public String getName() {
-		return name;
+	public String getSalesName() {
+		return salesName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setSalesName(String salesName) {
+		this.salesName = salesName;
 	}
 
 	public String getPassword() {
@@ -74,7 +82,7 @@ public class Sales implements Serializable{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + branchId;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((salesName == null) ? 0 : salesName.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((phone == null) ? 0 : phone.hashCode());
 		result = prime * result + salesId;
@@ -92,10 +100,10 @@ public class Sales implements Serializable{
 		Sales other = (Sales) obj;
 		if (branchId != other.branchId)
 			return false;
-		if (name == null) {
-			if (other.name != null)
+		if (salesName == null) {
+			if (other.salesName != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!salesName.equals(other.salesName))
 			return false;
 		if (password == null) {
 			if (other.password != null)
@@ -114,7 +122,7 @@ public class Sales implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Sales [salesId=" + salesId + ", branchId=" + branchId + ", name=" + name + ", password=" + password
+		return "Sales [salesId=" + salesId + ", branchId=" + branchId + ", salesName=" + salesName + ", password=" + password
 				+ ", phone=" + phone + "]";
 	}
 	

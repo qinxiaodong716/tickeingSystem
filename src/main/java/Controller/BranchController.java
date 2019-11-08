@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 
 import java.util.List;
@@ -31,12 +31,11 @@ public class BranchController {
 		//return JSON.toJSONString(branch);
 	}*/
 	
-	@RequestMapping("branch")
+	@RequestMapping("/branch")
 	@ResponseBody
 	public String Branch() {
 		List<Branch> branch = ibs.findAll();
-		return "123";
-		//return JSON.toJSONString(branch);
+		return JSON.toJSONString(branch);
 	}
 	
 }

@@ -21,6 +21,19 @@ public class TicketOrder implements Serializable{
 	private int salesId;
 	
 	public TicketOrder() {}
+	
+	public TicketOrder(int flightId, String passengerName, String certificationNumber, String orderDate, String level,
+			String passengerType, int branchId, int salesId) {
+		super();
+		this.flightId = flightId;
+		this.passengerName = passengerName;
+		this.certificationNumber = certificationNumber;
+		this.orderDate = orderDate;
+		this.level = level;
+		this.passengerType = passengerType;
+		this.branchId = branchId;
+		this.salesId = salesId;
+	}
 
 	public TicketOrder(long ticketOrderId, int flightId, String passengerName, String certificationNumber,
 			String orderDate, String level, String passengerType, int branchId, int salesId) {

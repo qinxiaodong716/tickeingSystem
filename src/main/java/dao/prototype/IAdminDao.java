@@ -1,5 +1,7 @@
 package dao.prototype;
-
+/*
+ * IAdminDao实现类
+ */
 import entity.Admin;
 
 public interface IAdminDao {

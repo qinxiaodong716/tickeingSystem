@@ -21,6 +21,21 @@ public class Flight implements Serializable{
 	
 	public Flight() {}
 	
+	
+	
+	public Flight(String flightNumber, Date departureDate, int firstClassRemainSeats, int businessClassRemainSeats,
+			int economyClassRemainSeats, double seasonDiscount) {
+		super();
+		this.flightNumber = flightNumber;
+		this.departureDate = departureDate;
+		this.firstClassRemainSeats = firstClassRemainSeats;
+		this.businessClassRemainSeats = businessClassRemainSeats;
+		this.economyClassRemainSeats = economyClassRemainSeats;
+		this.seasonDiscount = seasonDiscount;
+	}
+
+
+
 	public Flight(int flightId, String flightNumber, Date departureDate, int firstClassRemainSeats,
 			int businessClassRemainSeats, int economyClassRemainSeats, double seasonDiscount) {
 		super();
