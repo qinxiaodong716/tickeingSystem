@@ -138,7 +138,7 @@
 				<version>2.2</version>
 				<configuration>
 					<port>8080</port>
-					<path>/airsys2</path>
+					<path>/hangkong</path>
 					<!-- 实现热部署，不需要每次修改代码后都重新启动Tomcat -->
 					<contextReloadable>true</contextReloadable>
 				</configuration>
