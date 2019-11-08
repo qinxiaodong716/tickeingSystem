@@ -110,16 +110,66 @@ create table admin(
 	department_id int not null
 );
 
+/*
+ * 订单编号查询订单(前端)
+ */
+select o.order_id '订单编号',o.price '订单金额',o.status '状态',
+			 f.flight_id '航班编号',f.flight_number '航班号',f.departure_date '出发日期',
+			 t.ticket_order_id '机票编号',t.passenger_name '乘客姓名',t.certification_number '证件号码',
+			 t.order_date '出票日期', t.level '舱位等级',t.passenger_type '乘客类型',
+			 fs.from_city '出发机场', fs.to_city '到达机场',fs.departure_time '离港时间',
+			 fs.arrival_time '到港时间',fs.sail_length '里程',fs.airplane '机型'
+from orders o
+JOIN ticket_order t
+on o.ticket_order_id = t.ticket_order_id
+JOIN flight f
+on o.flight_number = f.flight_number
+JOIN flight_scheduler fs
+on f.flight_number = fs.flight_number
+where order_id=？
+/*
+ * 出发地-到达地查询航班(前端)
+ */
+select f.flight_id '航班号',f.departure_date '出发日期',f.season_discount '季节折扣',f.first_class_remain_seats '头等舱',f.business_class_remain_seats '公务舱',f.economy_class_remain_seats '经济舱'
+from flight f
+where f.flight_number=(
+	select fs.flight_number
+	from flight_scheduler fs
+	where fs.from_city=(
+		select a1.airport_code
+		from airport a1
+		where a1.city=？
+	)and fs.to_city=(
+		select a2.airport_code
+		from airport a2
+		where a2.city=？
+	)
+)
+
+/*
+ *按 id 查找售票员 (后台)
+ */
 
 
+select s.sales_id 'id',s.sales_name 'name',b.branch_name '站点',s.phone '电话',
+FROM sales s
+JOIN branch b
+on s.branch_id = b.branch_id
+where s.sales_id=？
 
+/*
+ *查询航班信息(后台)
+ */
+select fs.flight_number '航班号',a1.city '出发地',a2.city '目的地',fs.arrival_time'离港时间',fs.departure_time'到港时间',fs.scheduler'班期',fs.basic_price '基准票价'
+from flight_scheduler fs
+JOIN airport a1
+on fs.from_city = a1.airport_code
+join airport a2
+on fs.to_city = a2.airport_code
 
-
-
-
-
-
-
+/*
+ * 
+ */
 
 
 
