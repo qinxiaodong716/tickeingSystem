@@ -36,7 +36,7 @@ public class AdminDaoSpringImpl implements IAdminDao{
 				new Object[] {phone,password}, 
 				new BeanPropertyRowMapper<>(Admin.class));
 		if(result.size()>0) {
-			return 1;
+			return result.get(0).getDepartmentId();  //返回所在部门id
 		}
 		return 0;
 	}

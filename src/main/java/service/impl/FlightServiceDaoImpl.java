@@ -29,6 +29,9 @@ public class FlightServiceDaoImpl implements IFlightService{
 	public int delete(int flightid) {
 		return flightDao.delete(flightid);
 	}
-	
+	@Override
+	public List<Flight> listFlightSchedulers(String fromCity, String toCity, String date) {
+		return flightDao.listFlightSchedulers(fromCity, toCity, date);
+	}
 
 }

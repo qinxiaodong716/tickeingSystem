@@ -6,7 +6,9 @@ import entity.People;
 
 public interface IPeopleDao {
 	int saveOrUpdate(People peop);
-	int login(String phone,String password);
+	List<People> login(String phone,String password);
 	int delete(int id);
+	List<People> find(String phone);
 	List<People> findAll(int offset,int pageSize);
+	int setpassword(String phone,String password);
 }

@@ -14,6 +14,9 @@ import entity.People;
 public class PeopleDaoSpringImpl implements IPeopleDao{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
+	/*
+	 * 注册用户
+	 */
 	@Override
 	public int saveOrUpdate(People peop) {
 		int i=0;
@@ -21,32 +24,68 @@ public class PeopleDaoSpringImpl implements IPeopleDao{
 			i=jdbcTemplate.update("insert into people(people_name,password,phone,id_card) values(?,?,?,?)",
 					new Object[] {peop.getPeopleName(),peop.getPassword(),peop.getPhone(),peop.getIdCard()});
 		}else {
-			i=jdbcTemplate.update("update people set people_name=?,password=?,phone=?,id_card=? where people_id=?", 
-					new Object[] {peop.getPeopleName(),peop.getPassword(),peop.getPhone(),peop.getIdCard(),peop.getPeopleId()});
+			if(peop.getPassword()==null){
+				i=jdbcTemplate.update("update people set people_name=?,phone=?,id_card=? where people_id=?", 
+						new Object[] {peop.getPeopleName(),peop.getPhone(),peop.getIdCard(),peop.getPeopleId()});
+			}else {
+				i=jdbcTemplate.update("update people set password=?,phone=? where people_id=?", 
+					new Object[] {peop.getPassword(),peop.getPhone(),peop.getPeopleId()});
+			}
 		}
 		return i;
 	}
+	/**
+	 * 验证登录
+	 */
 	@Override
-	public int login(String phone, String password){
+	public List<People> login(String phone, String password){
 		List<People> result=null;
-		result=jdbcTemplate.query("select * from people where phone=? and password=?", 
+		result=jdbcTemplate.query("select phone,people_name from people where phone=? and password=?", 
 				new Object[] {phone,password}, 
 				new BeanPropertyRowMapper<>(People.class));
 		if(result.size()>0) {
-			return 1;
+			return result;
 		}
-		return 0;
+		return result;
 	}
+	/**
+	 * 删除某用户
+	 */
 	@Override
 	public int delete(int id) {
 		return jdbcTemplate.update("delete from people where people_id=?",
 				new Object[] {id});
 	}
+	/**
+	 * 分页查询所有用户
+	 */
 	@Override
 	public List<People> findAll(int offset, int pageSize) {
 		return jdbcTemplate.query("select * from people limit ?,?",
 				new Object[] {offset,pageSize},
 				new BeanPropertyRowMapper<People>(People.class));
+	}
+	/*
+	 * 按手机号查询用户
+	 */
+	@Override
+	public List<People> find(String phone) {
+		List<People> result=null;
+		result=jdbcTemplate.query("select people_id,phone,people_name,id_card from people where phone=?", 
+				new Object[] {phone}, 
+				new BeanPropertyRowMapper<>(People.class));
+		if(result.size()>0) {
+			return result;
+		}
+		return result;
+	}
+	/*
+	 * 修改密码
+	 */
+	@Override
+	public int setpassword(String phone, String password) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

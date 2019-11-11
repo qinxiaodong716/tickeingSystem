@@ -1,5 +1,7 @@
 package service.prototype;
 
+import java.util.List;
+
 import entity.People;
 
 /*
@@ -7,5 +9,7 @@ import entity.People;
  */
 public interface IPeopleService {
 	int saveOrUpdate(People peop);
-	int login(String phone,String password);
+	List<People> find(String phone);
+	List<People> login(String phone,String password);
+	
 }

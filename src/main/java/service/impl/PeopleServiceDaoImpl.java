@@ -1,5 +1,7 @@
 package service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,8 +23,13 @@ public class PeopleServiceDaoImpl implements IPeopleService{
 	}
 
 	@Override
-	public int login(String phone, String password) {
+	public List<People> login(String phone, String password) {
 		return ipd.login(phone, password);
+	}
+
+	@Override
+	public List<People> find(String phone) {
+		return ipd.find(phone);
 	}
 	
 }

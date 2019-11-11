@@ -19,7 +19,19 @@ public class People implements Serializable{
 	private String idCard;
 	
 	public People() {}
-	
+	public People(int peopleId,String phone, String password) {
+		super();
+		this.peopleId = peopleId;
+		this.password = password;
+		this.phone = phone;
+	}
+	public People(int peopleId,String peopleName,String phone, String idCard) {
+		super();
+		this.peopleId = peopleId;
+		this.peopleName = peopleName;
+		this.phone = phone;
+		this.idCard = idCard;
+	}
 	public People(String peopleName, String password, String phone, String idCard) {
 		super();
 		this.peopleName = peopleName;

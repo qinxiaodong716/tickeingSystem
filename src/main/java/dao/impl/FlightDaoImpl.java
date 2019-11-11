@@ -42,5 +42,12 @@ public class FlightDaoImpl implements IFlightDao{
 				new Object[] {flightId});
 		
 	}
+	
+	@Override
+	public List<Flight> listFlightSchedulers(String fromCity, String toCity, String date) {
+		return jdbcTemplate.query("select * from flight f where f.flight_number = (select fs.flight_number FROM flight_scheduler fs where fs.from_city=( select a1.airport_code FROM airport a1 where a1.city = ?) and fs.to_city=(select a2.airport_code FROM airport a2 where a2.city = ?)and fs.start_date= ?)", 
+				new Object[] {fromCity,toCity,date},
+				new BeanPropertyRowMapper<>(Flight.class));
+	}
 
 }

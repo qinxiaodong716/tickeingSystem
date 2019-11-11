@@ -126,7 +126,7 @@ JOIN flight f
 on o.flight_number = f.flight_number
 JOIN flight_scheduler fs
 on f.flight_number = fs.flight_number
-where order_id=？
+where operator_phone=4
 /*
  * 出发地-到达地查询航班(前端)
  */
@@ -168,12 +168,24 @@ join airport a2
 on fs.to_city = a2.airport_code
 
 /*
- * 
+ * 按出发地、目的地、出发时间查询航班信息
  */
-
-
-
-
+select *
+FROM flight f
+where f.flight_number = (	
+	select fs.flight_number
+	FROM flight_scheduler fs
+	where fs.from_city=(
+		select a1.airport_code 
+		FROM airport a1
+		where a1.city = ""
+	) and fs.to_city=(
+		select a2.airport_code
+		FROM airport a2
+		where a2.city = ""
+	)and fs.start_date= ""
+)
+select * from flight f where f.flight_number = (select fs.flight_number FROM flight_scheduler fs where fs.from_city=( select a1.airport_code FROM airport a1 where a1.city = ？) and fs.to_city=(select a2.airport_code FROM airport a2 where a2.city = ？)and fs.start_date= ？)
 
 
 
