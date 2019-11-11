@@ -11,7 +11,7 @@ import java.util.Date;
 public class FlightScheduler implements Serializable{
 	
 	private static final long serialVersionUID = 2427165183041369292L;
-	private String fightNumber;
+	private String flightNumber;
 	private Date startDate;
 	private Date endDate;
 	private String fromCity;
@@ -27,10 +27,10 @@ public class FlightScheduler implements Serializable{
 	public FlightScheduler() {}
 
 
-	public FlightScheduler(String fightNumber, Date startDate, Date endDate, String fromCity, String toCity,
+	public FlightScheduler(String flightNumber, Date startDate, Date endDate, String fromCity, String toCity,
 			Date departureTime, Date arrivalTime, String airplane, String scheduler, double sailLength, double basicPrice) {
 		super();
-		this.fightNumber = fightNumber;
+		this.flightNumber = flightNumber;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.fromCity = fromCity;
@@ -44,13 +44,13 @@ public class FlightScheduler implements Serializable{
 	}
 
 
-	public String getFightNumber() {
-		return fightNumber;
+	public String getflightNumber() {
+		return flightNumber;
 	}
 
 
-	public void setFightNumber(String fightNumber) {
-		this.fightNumber = fightNumber;
+	public void setflightNumber(String flightNumber) {
+		this.flightNumber = flightNumber;
 	}
 
 
@@ -155,7 +155,7 @@ public class FlightScheduler implements Serializable{
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((departureTime == null) ? 0 : departureTime.hashCode());
 		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
-		result = prime * result + ((fightNumber == null) ? 0 : fightNumber.hashCode());
+		result = prime * result + ((flightNumber == null) ? 0 : flightNumber.hashCode());
 		result = prime * result + ((fromCity == null) ? 0 : fromCity.hashCode());
 		temp = Double.doubleToLongBits(sailLength);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
@@ -197,10 +197,10 @@ public class FlightScheduler implements Serializable{
 				return false;
 		} else if (!endDate.equals(other.endDate))
 			return false;
-		if (fightNumber == null) {
-			if (other.fightNumber != null)
+		if (flightNumber == null) {
+			if (other.flightNumber != null)
 				return false;
-		} else if (!fightNumber.equals(other.fightNumber))
+		} else if (!flightNumber.equals(other.flightNumber))
 			return false;
 		if (fromCity == null) {
 			if (other.fromCity != null)
@@ -230,7 +230,7 @@ public class FlightScheduler implements Serializable{
 
 	@Override
 	public String toString() {
-		return "FlightScheduler [fightNumber=" + fightNumber + ", startDate=" + startDate + ", endDate=" + endDate
+		return "FlightScheduler [flightNumber=" + flightNumber + ", startDate=" + startDate + ", endDate=" + endDate
 				+ ", fromCity=" + fromCity + ", toCity=" + toCity + ", departureTime=" + departureTime
 				+ ", arrivalTime=" + arrivalTime + ", airplane=" + airplane + ", scheduler=" + scheduler
 				+ ", sailLength=" + sailLength + ", basicPrice=" + basicPrice + "]";

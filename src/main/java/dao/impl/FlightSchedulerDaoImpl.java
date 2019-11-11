@@ -26,9 +26,9 @@ public class FlightSchedulerDaoImpl implements IFlightSchedulerDao{
 	@Override
 	public int saveOrUpdate(FlightScheduler flightScheduler) {
 		int i = 0;
-		if(flightScheduler.getFightNumber()==null) {
+		if(flightScheduler.getflightNumber()==null) {
 			i = jdbcTemplate.update("insert into flight_scheduler(flight_number,start_date,end_date,from_city,to_city,departure_time,arrival_time,airplane,scheduler,sail_length,basic_price) values(?,?,?,?,?,?,?,?,?,?,?)",
-					new Object[] {flightScheduler.getFightNumber(),flightScheduler.getStartDate(),flightScheduler.getEndDate(),flightScheduler.getFromCity(),flightScheduler.getToCity(),flightScheduler.getDepartureTime(),flightScheduler.getArrivalTime(),flightScheduler.getAirplane(),flightScheduler.getScheduler(),flightScheduler.getSailLength(),flightScheduler.getBasicPrice()});
+					new Object[] {flightScheduler.getflightNumber(),flightScheduler.getStartDate(),flightScheduler.getEndDate(),flightScheduler.getFromCity(),flightScheduler.getToCity(),flightScheduler.getDepartureTime(),flightScheduler.getArrivalTime(),flightScheduler.getAirplane(),flightScheduler.getScheduler(),flightScheduler.getSailLength(),flightScheduler.getBasicPrice()});
 		}else {
 			i = jdbcTemplate.update("update flight_scheduler set start_date=?,end_date=?,from_city=?,to_city=?,departure_time=?,arrival_time=?,airplane=?,scheduler=?,sail_length=?,basic_price=? where flight_number=?",
 					new Object[] {flightScheduler.getStartDate(),flightScheduler.getEndDate(),flightScheduler.getFromCity(),flightScheduler.getToCity(),flightScheduler.getDepartureTime(),flightScheduler.getArrivalTime(),flightScheduler.getAirplane(),flightScheduler.getScheduler(),flightScheduler.getSailLength(),flightScheduler.getBasicPrice()});

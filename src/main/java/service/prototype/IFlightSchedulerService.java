@@ -9,4 +9,6 @@ public interface IFlightSchedulerService {
 
 	
 	List<FlightScheduler> listFlightSchedulers(int pageNo,int pageSize);
+	
+	
 }

@@ -1,0 +1,224 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+.left-map{
+    position: absolute;
+    height: 97%;
+    width:79%;
+    border: 1px solid blue;
+}
+.right-paihangbang{
+    position: absolute;
+    right:-260px;
+    top: 0;
+    height:100%;
+    width: 25%;
+    border: 1px solid blue;
+}
+.left-map-zhong {
+    position: absolute;
+    top: 20px;
+    left: 45%;
+    font-style: italic;
+    font-size: 18px;
+}
+.point{
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: #FF5722;
+    border-radius: 50%;
+    font-size: 12px;
+}
+a{
+    text-decoration: none;
+}
+/*.point:nth-of-type(1){
+    position: absolute;
+    left:240px;
+    top: 170px;
+}*/
+
+#xinjiang {
+    position: absolute;
+    left: 240px;
+    top: 170px;
+}
+#xizang {
+    position: absolute;
+    left: 220px;
+    top: 350px;
+}
+#gansu{
+    position: absolute;
+    left: 390px;
+    top: 215px;
+}
+#qinghai{
+    position: absolute;
+    left: 350px;
+    top: 280px;
+}
+#neimenggu{
+    position: absolute;
+    left: 600px;
+    top: 210px;
+}
+#heilongjiang{
+    position: absolute;
+    left: 900px;
+    top: 90px;
+}
+#jilin{
+    position: absolute;
+    left: 900px;
+    top: 150px;
+}
+#liaoning{
+    position: absolute;
+    left: 860px;
+    top: 190px;
+}
+#beijing{
+    position: absolute;
+    left: 755px;
+    top: 210px;
+}
+#tianjin{
+    position: absolute;
+    left: 780px;
+    top: 230px;
+}
+#hebei{
+    position: absolute;
+    left: 732px;
+    top: 240px;
+}
+#shanxi{
+    position: absolute;
+    left: 680px;
+    top: 250px;
+}
+#shandong{
+    position: absolute;
+    left: 780px;
+    top: 270px;
+}
+#shanx{
+    position: absolute;
+    left: 620px;
+    top: 310px;
+}
+#henan{
+    position: absolute;
+    left: 700px;
+    top: 320px;
+}
+#jiangsu{
+    position: absolute;
+    left: 830px;
+    top: 320px;
+}
+#shanghai{
+    position: absolute;
+    left: 875px;
+    top: 352px;
+}
+#anhui{
+    position: absolute;
+    left: 785px;
+    top: 352px;
+}
+#zhejiang{
+    position: absolute;
+    left: 850px;
+    top: 390px;
+}
+#fujian{
+    position: absolute;
+    left: 820px;
+    top: 440px;
+}
+#guangdong{
+    position: absolute;
+    left: 720px;
+    top: 480px;
+}
+#xianggang{
+    position: absolute;
+    left: 740px;
+    top: 500px;
+}
+#aomen{
+    position: absolute;
+    left: 660px;
+    top: 530px;
+}
+#hainan{
+    position: absolute;
+    left: 655px;
+    top: 560px;
+}
+#taiwan{
+    position: absolute;
+    left: 885px;
+    top: 475px;
+}
+#jiangxi{
+    position: absolute;
+    left: 770px;
+    top: 410px;
+}
+#hunan{
+    position: absolute;
+    left: 675px;
+    top: 420px;
+}
+#hubei{
+    position: absolute;
+    left: 670px;
+    top: 360px;
+}
+#guangxi{
+    position: absolute;
+    left: 620px;
+    top: 480px;
+}
+#yunnan{
+    position: absolute;
+    left: 480px;
+    top: 480px;
+}
+#sichuan{
+    position: absolute;
+    left: 480px;
+    top: 380px;
+}
+#guizhou{
+    position: absolute;
+    left: 590px;
+    top: 440px;
+}
+#chongqing{
+    position: absolute;
+    left: 610px;
+    top: 380px;
+}
+#ningxia{
+    position: absolute;
+    left: 580px;
+    top: 265px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
