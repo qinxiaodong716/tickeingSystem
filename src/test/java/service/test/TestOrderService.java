@@ -1,4 +1,4 @@
-package Dao.test;
+package service.test;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,17 +7,17 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import config.TestConfig;
-import dao.prototype.IFlightSchedulerDao;
+import service.prototype.IOrderService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes= {TestConfig.class})
-public class TestFlightSchedlerDao {
+public class TestOrderService {
 	
-	@Autowired
-	private IFlightSchedulerDao ifsd;
+	@Autowired 
+	public IOrderService ios;
 	
 	@Test
-	public void testDelete() {
-		System.out.println(ifsd.delete("YH0001"));
+	public void testFind() {
+		System.out.println(ios.find("19935813304"));
 	}
 }

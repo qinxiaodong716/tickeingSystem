@@ -18,10 +18,10 @@ import service.prototype.IFlightService;
 public class FlightSchedulerController {
 	@Autowired
 	private IFlightService ifs;
-	
+	//查询航向信息
 	@RequestMapping("/inquireflight")
 	public ModelAndView index(HttpServletRequest request,HttpServletResponse response) {
-		ModelAndView mv = new ModelAndView("inquireflight");
+		ModelAndView mv = new ModelAndView("people/inquireflight");
 		String fromCity = request.getParameter("fromCity");
 		String toCity = request.getParameter("toCity");
 		String date = request.getParameter("date");
@@ -32,9 +32,10 @@ public class FlightSchedulerController {
 		mv.addObject("acts",acts);
 		return mv;
 	}
+	//查询航班信息
 	@RequestMapping("/checkflights/{flightNumber}")
 	public ModelAndView checkFlights(@PathVariable String flightNumber) {
-		ModelAndView mv = new ModelAndView("inquireflight");
+		ModelAndView mv = new ModelAndView("people/inquireflight");
 		List<Flight> acts = ifs.listFlight(1, 10);
 		mv.addObject("acts", acts);
 		return mv;

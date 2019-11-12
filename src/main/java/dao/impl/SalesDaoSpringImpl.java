@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
  * SalesDao实现类
  */
 import dao.prototype.ISalesDao;
+import entity.People;
 import entity.Sales;
 
 @Repository("salesDaoSpringImpl")
@@ -24,12 +25,16 @@ public class SalesDaoSpringImpl implements ISalesDao{
 			i=jdbcTemplate.update("insert into sales(branch_id,sales_name,password,phone) values(?,?,?,?)",
 					new Object[] {sales.getBranchId(),sales.getSalesName(),sales.getPassword(),sales.getPhone()});
 		}else {
-			i=jdbcTemplate.update("update sales set branch_id=?,sales_name=?,password=?,phone=? where sales_id=?", 
-					new Object[] {sales.getBranchId(),sales.getSalesName(),sales.getPassword(),sales.getPhone(),sales.getSalesId()});
+			if(sales.getSalesName()==null) {
+				i=jdbcTemplate.update("update sales set branch_id=?,sales_name=?,phone=? where sales_id=?", 
+						new Object[] {sales.getBranchId(),sales.getPassword(),sales.getPhone(),sales.getSalesId()});
+			}else {
+				i=jdbcTemplate.update("update sales set password=?where sales_id=?", 
+						new Object[] {sales.getPassword(),sales.getSalesId()});
+			}
 		}
 		return i;
 	}
-	
 	@Override
 	public int login(String phone, String password) {
 		List<Sales> result=null;
@@ -41,13 +46,20 @@ public class SalesDaoSpringImpl implements ISalesDao{
 		}
 		return 0;
 	}
-
 	@Override
 	public int delete(int id) {
 		return jdbcTemplate.update("delete from sales where sales_id=?",
 				new Object[] {id});
 	}
-
-	
-
+	@Override
+	public List<Sales> find(String phone) {
+		List<Sales> result=null;
+		result=jdbcTemplate.query("select sales_id,phone,sales_name from sales where phone=?", 
+				new Object[] {phone}, 
+				new BeanPropertyRowMapper<>(Sales.class));
+		if(result.size()>0) {
+			return result;
+		}
+		return result;
+	}
 }

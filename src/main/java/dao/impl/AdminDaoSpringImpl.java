@@ -23,8 +23,13 @@ public class AdminDaoSpringImpl implements IAdminDao{
 			i=jdbcTemplate.update("insert into admin(admin_name,password,department_id,phone) values(?,?,?,?)",
 					new Object[] {admin.getAdminName(),admin.getPassword(),admin.getDepartmentId(),admin.getPhone()});
 		}else {
-			i=jdbcTemplate.update("update admin set admin_name=?,password=?,department_id=?,phone=? where admin_id=?", 
-					new Object[] {admin.getAdminName(),admin.getPassword(),admin.getDepartmentId(),admin.getPhone(),admin.getAdminId()});
+			if(admin.getPassword()==null) {
+				i=jdbcTemplate.update("update admin set admin_name=?,department_id=?,phone=? where admin_id=?", 
+						new Object[] {admin.getAdminName(),admin.getPassword(),admin.getDepartmentId(),admin.getPhone(),admin.getAdminId()});
+			}else {
+				i=jdbcTemplate.update("update admin set password=? where admin_id=?", 
+					new Object[] {admin.getPassword(),admin.getAdminId()});
+			}
 		}
 		return i;
 	}
@@ -36,7 +41,7 @@ public class AdminDaoSpringImpl implements IAdminDao{
 				new Object[] {phone,password}, 
 				new BeanPropertyRowMapper<>(Admin.class));
 		if(result.size()>0) {
-			return result.get(0).getDepartmentId();  //返回所在部门id
+			return 1;  //返回所在部门id
 		}
 		return 0;
 	}

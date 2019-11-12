@@ -31,5 +31,7 @@ public class PeopleServiceDaoImpl implements IPeopleService{
 	public List<People> find(String phone) {
 		return ipd.find(phone);
 	}
+
+	
 	
 }

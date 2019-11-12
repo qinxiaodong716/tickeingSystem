@@ -116,9 +116,9 @@ create table admin(
 select o.order_id '订单编号',o.price '订单金额',o.status '状态',
 			 f.flight_id '航班编号',f.flight_number '航班号',f.departure_date '出发日期',
 			 t.ticket_order_id '机票编号',t.passenger_name '乘客姓名',t.certification_number '证件号码',
-			 t.order_date '出票日期', t.level '舱位等级',t.passenger_type '乘客类型',
-			 fs.from_city '出发机场', fs.to_city '到达机场',fs.departure_time '离港时间',
-			 fs.arrival_time '到港时间',fs.sail_length '里程',fs.airplane '机型'
+			 t.order_date '出票日期', t.level '舱位等级',t.passenger_type '乘客类型',t.sales_id '操作人',
+			 fs.from_city '出发机场',a1.city '出发地', fs.to_city '到达机场',a2.city '到达地',fs.departure_time '离港时间',
+			 fs.arrival_time '到港时间',fs.sail_length '里程',fs.airplane '机型',b.branch_name '站点名称'
 from orders o
 JOIN ticket_order t
 on o.ticket_order_id = t.ticket_order_id
@@ -126,7 +126,15 @@ JOIN flight f
 on o.flight_number = f.flight_number
 JOIN flight_scheduler fs
 on f.flight_number = fs.flight_number
-where operator_phone=4
+JOIN airport a1
+on a1.airport_code = fs.from_city
+JOIN airport a2
+on a2.airport_code = fs.to_city
+join branch b
+on b.branch_id = t.branch_id
+join sales s
+on s.sales_id = t.sales_id
+where operator_phone='19935813304'
 /*
  * 出发地-到达地查询航班(前端)
  */

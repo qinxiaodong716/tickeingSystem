@@ -28,8 +28,8 @@ public class PeopleDaoSpringImpl implements IPeopleDao{
 				i=jdbcTemplate.update("update people set people_name=?,phone=?,id_card=? where people_id=?", 
 						new Object[] {peop.getPeopleName(),peop.getPhone(),peop.getIdCard(),peop.getPeopleId()});
 			}else {
-				i=jdbcTemplate.update("update people set password=?,phone=? where people_id=?", 
-					new Object[] {peop.getPassword(),peop.getPhone(),peop.getPeopleId()});
+				i=jdbcTemplate.update("update people set password=?where people_id=?", 
+					new Object[] {peop.getPassword(),peop.getPeopleId()});
 			}
 		}
 		return i;
@@ -40,7 +40,7 @@ public class PeopleDaoSpringImpl implements IPeopleDao{
 	@Override
 	public List<People> login(String phone, String password){
 		List<People> result=null;
-		result=jdbcTemplate.query("select phone,people_name from people where phone=? and password=?", 
+		result=jdbcTemplate.query("select phone from people where phone=? and password=?", 
 				new Object[] {phone,password}, 
 				new BeanPropertyRowMapper<>(People.class));
 		if(result.size()>0) {
@@ -87,5 +87,4 @@ public class PeopleDaoSpringImpl implements IPeopleDao{
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
 }

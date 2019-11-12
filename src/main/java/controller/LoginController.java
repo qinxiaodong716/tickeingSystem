@@ -1,68 +1,133 @@
 package controller;
-
+/*
+ * 登录COntroller
+ */
 import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import entity.People;
+import entity.Sales;
+import service.prototype.IAdminService;
 import service.prototype.IPeopleService;
+import service.prototype.ISalesService;
 
 @Controller
 public class LoginController {
+
 	@Autowired
 	private IPeopleService ips;
-	
+	@Autowired
+	private IAdminService ias;
+	@Autowired
+	private ISalesService iss;
+	//index进入登录页
 	@RequestMapping("/index")
 	public String index() {
 		return "login";
 	}
+	//进入数据管理员页面
 	@RequestMapping("/admin")
 	public String admin() {
-		return "admin";
+		return "admin/admin";
 	}
+	//进入管理员界面
 	@RequestMapping("/sales")
 	public String sales() {
-		return "sales";
+		return "sales/sales";
 	}
+	//进入用户页面
 	@RequestMapping("/people")
 	public String people() {
-		return "people";
+		return "people/people";
 	}
+	//登录验证
 	@RequestMapping("/loginservice")
 	public void loginservice(HttpServletRequest request,HttpServletResponse response) {
 		String phone=request.getParameter("phone");
 		String password=request.getParameter("password");
-		int identity=Integer.parseInt(request.getParameter("identity"));
-		List<People> result = ips.login(phone, password);
-		String name=result.get(0).getPeopleName();
-		if(result.size()>0) {
-			try {
-				if(identity==1) {
+		//int identity=Integer.parseInt(request.getParameter("identity"));
+		int identity=3;
+		if(identity==1) {
+			int result = ias.login(phone,password);
+			if(result>0) {
+				request.getSession().setAttribute("phone", phone);
+				request.getSession().setAttribute("identity", identity);
+				try {
 					response.sendRedirect("admin");
-				}else if(identity==2){
-					response.sendRedirect("sales");
-				}else {
-					request.getSession().setAttribute("name", name);
-					request.getSession().setAttribute("phone", phone);
-					response.sendRedirect("people");
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
-				
-			} catch (IOException e) {
-				e.printStackTrace();
+			}else {
+				try {
+					response.sendRedirect("index");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}else if(identity==2){
+			int result = iss.login(phone, password);
+			if(result>0) {
+				request.getSession().setAttribute("phone", phone);
+				request.getSession().setAttribute("identity", identity);
+				try {
+					response.sendRedirect("sales");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}else {
+				try {
+					response.sendRedirect("index");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		}else {
-			try {
-				response.sendRedirect("index");
-			} catch (IOException e) {
-				e.printStackTrace();
+			List<People> result = ips.login(phone, password);
+			if(result.size()>0) {
+				request.getSession().setAttribute("phone", phone);
+				request.getSession().setAttribute("identity", identity);
+				try {
+					response.sendRedirect("people");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}else {
+				try {
+					response.sendRedirect("index");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		}
+		
+		
+	}
+	//获取用户名
+	@RequestMapping("/uname")
+	@ResponseBody
+	public String username(HttpSession session) {
+		String phone = session.getAttribute("phone").toString();
+		int identity = Integer.parseInt(session.getAttribute("identity").toString());
+		if(identity==1) {
+			List<People> resu = ips.find(phone);
+			return resu.get(0).getPeopleName();
+		}else if(identity==2) {
+			List<Sales> resu = iss.find(phone);
+			return resu.get(0).getSalesName();
+		}else {
+			List<People> resu = ips.find(phone);
+			return resu.get(0).getPeopleName();
+		}
+		
 	}
 
 }

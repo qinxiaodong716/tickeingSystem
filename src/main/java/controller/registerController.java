@@ -20,11 +20,12 @@ public class registerController {
 
 	@Autowired
 	private IPeopleService ips;
-	
+	//注册页
 	@RequestMapping("/register")
 	public String index() {
-		return "register";
+		return "people/register";
 	}
+	//注册后台处理
 	@RequestMapping("/registerservice")
 	public void registerservice(HttpServletRequest request,HttpServletResponse response) {
 		String name = request.getParameter("name");
