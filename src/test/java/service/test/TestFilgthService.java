@@ -32,4 +32,8 @@ public class TestFilgthService {
 	public void testDelete() {
 		System.out.println(ifs.delete(3));
 	}
+	@Test
+	public void testListFlightSchedulers2() {
+		System.out.println(ifs.listFlightSchedulers("CKJ","PEk","2019-10-02"));
+	}
 }

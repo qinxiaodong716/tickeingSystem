@@ -22,7 +22,7 @@ public class TestAirplanModelDao {
 	
 	@Test
 	public void testSave() {
-		AirplaneModel apm = new AirplaneModel("A310-100",6820,12,20,228);
+		AirplaneModel apm = new AirplaneModel("A310-600",6820,12,20,228);
 		System.out.println(iad.save(apm));
 	}
 	@Test

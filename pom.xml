@@ -140,6 +140,7 @@
 				<configuration>
 					<port>8080</port>
 					<path>/hangkong</path>
+					<urlEncoding>UTF-8</urlEncoding>
 					<!-- 实现热部署，不需要每次修改代码后都重新启动Tomcat -->
 					<contextReloadable>true</contextReloadable>
 				</configuration>

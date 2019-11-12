@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import config.AppConfig;
 import config.TestConfig;
-import dao.prototype.IPeopleDao;
 import entity.People;
 import service.prototype.IPeopleService;
 
@@ -29,4 +27,9 @@ public class TestPeopleService {
 	public void testLogin() {
 		System.out.println(ips.login("15103467169", "123"));
 	}
+	@Test
+	public void testphonefind() {
+		System.out.println(ips.find("15103467169"));
+	}
+	
 }

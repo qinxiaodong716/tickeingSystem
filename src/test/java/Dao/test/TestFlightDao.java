@@ -26,4 +26,8 @@ public class TestFlightDao {
 		Flight flight = new Flight("li","2020-10-10",1,1,1,1.2);
 		System.out.println(ifd.saveOrUpdate(flight));
 	}
+	@Test
+	public void testListFlightSchedulers2() {
+		System.out.println(ifd.listFlightSchedulers("CKJ","PEk","2019-10-02"));
+	}
 }

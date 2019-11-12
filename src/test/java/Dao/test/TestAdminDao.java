@@ -22,13 +22,13 @@ public class TestAdminDao {
 	
 	@Test
 	public void testSaveOrUpdate() {
-		Admin admin = new Admin(4,"wangwu", "123", 1,"15103467169");
+		Admin admin = new Admin("zhaoliu", "123", 3,"19935813304");
 		System.out.println(iad.saveOrUpdate(admin));
 	}
 	
 	@Test
 	public void testLogin() {
-		System.out.println(iad.login("15103467169", "123"));
+		System.out.println(iad.login("19935813304", "123"));
 	}
 	
 	@Test
