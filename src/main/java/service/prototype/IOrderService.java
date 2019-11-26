@@ -5,7 +5,7 @@ import java.util.List;
 import entity.Order;
 
 public interface IOrderService {
-	int save(Order order);
-	List<Order> find(int id);
+	long save(Order order);
+	List<Order> find(long id);
 	List<Order> find(String phone);
 }

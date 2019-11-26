@@ -32,6 +32,16 @@ public class PeopleServiceDaoImpl implements IPeopleService{
 		return ipd.find(phone);
 	}
 
+	@Override
+	public List<People> nameFind(String name) {
+		return ipd.nameFind(name);
+	}
+
+	@Override
+	public List<People> findAll() {
+		return ipd.findAll();
+	}
+
 	
 	
 }

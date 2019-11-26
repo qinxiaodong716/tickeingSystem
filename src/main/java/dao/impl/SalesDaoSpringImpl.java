@@ -62,4 +62,10 @@ public class SalesDaoSpringImpl implements ISalesDao{
 		}
 		return result;
 	}
+	@Override
+	public List<Sales> findAll() {
+		return jdbcTemplate.query("select * from sales where sales_id>0", 
+				new Object[] {}, 
+				new BeanPropertyRowMapper<>(Sales.class));
+	}
 }

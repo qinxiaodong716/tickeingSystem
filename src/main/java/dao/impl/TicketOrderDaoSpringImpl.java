@@ -18,13 +18,19 @@ public class TicketOrderDaoSpringImpl implements ITicketOrderDao{
 	@Override
 	public int saveOrUpdate(TicketOrder ticketOrder) {
 		int i=0;
-		if(ticketOrder.getticketOrderId()==0) {
-			i=jdbcTemplate.update("insert into ticket_order(flight_id,passenger_name,certification_number,order_date,level,passenger_type,branch_id,sales_id) values(?,?,?,?,?,?,?,?)",
-					new Object[] {ticketOrder.getflightId(),ticketOrder.getpassengerName(),ticketOrder.getcertificationNumber(),ticketOrder.getorderDate(),ticketOrder.getLevel(),ticketOrder.getpassengerType(),ticketOrder.getbranchId(),ticketOrder.getsalesId()});
+		if(ticketOrder.getTicketOrderId()==0) {
+			if(ticketOrder.getSalesId()==0) {
+				i = jdbcTemplate.update("insert into ticket_order(flight_id,passenger_name,certification_number,level,passenger_type,order_id) values(?,?,?,?,?,?)", 
+					new Object[] {ticketOrder.getFlightId(),ticketOrder.getPassengerName(),ticketOrder.getCertificationNumber(),ticketOrder.getLevel(),ticketOrder.getPassengerType(),ticketOrder.getOrderId()});
+			}else {
+				i = jdbcTemplate.update("insert into ticket_order(flight_id,passenger_name,certification_number,level,passenger_type,order_id,branch_id,sales_id) values(?,?,?,?,?,?,?,?)", 
+						new Object[] {ticketOrder.getFlightId(),ticketOrder.getPassengerName(),ticketOrder.getCertificationNumber(),ticketOrder.getLevel(),ticketOrder.getPassengerType(),ticketOrder.getOrderId(),ticketOrder.getBranchId(),ticketOrder.getSalesId()});
+			}
+			
 		}else {
-			i=jdbcTemplate.update("update ticket_order set flight_id=?,passenger_name=?,certification_number=?,order_date=?,level=?,passenger_type=?,branch_id=?,sales_id=? where ticket_order_id=?", 
-					new Object[] {ticketOrder.getflightId(),ticketOrder.getpassengerName(),ticketOrder.getcertificationNumber(),ticketOrder.getorderDate(),ticketOrder.getLevel(),ticketOrder.getpassengerType(),ticketOrder.getbranchId(),ticketOrder.getsalesId(),ticketOrder.getticketOrderId()});
-		}
+				i = jdbcTemplate.update("update ticket_order set flight_id=?,passenger_name=?,certification_number=?,level=?,passenger_type=?,order_id=?,branch_id=?,sales_id=? where ticket_order_id = ?", 
+						new Object[] {ticketOrder.getFlightId(),ticketOrder.getPassengerName(),ticketOrder.getCertificationNumber(),ticketOrder.getLevel(),ticketOrder.getPassengerType(),ticketOrder.getOrderId(),ticketOrder.getBranchId(),ticketOrder.getSalesId(),ticketOrder.getTicketOrderId()});
+						}
 		return i;
 	}
 

@@ -24,4 +24,8 @@ public class TestOrderDao {
 	public void testphonefind() {
 		System.out.println(iod.find("15103467169"));
 	}
+	@Test
+	public void testupdata() {
+		System.out.println(iod.updata(112,"yfk"));
+	}
 }

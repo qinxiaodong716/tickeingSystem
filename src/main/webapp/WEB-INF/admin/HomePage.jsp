@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="left-map">
-    <img src="assets/img/zhongguo.jpg" alt="" style="height: 100%;width: 100%">
+    <img src="/hangkong/assets/image/zhongguo.jpg" alt="" style="height: 100%;width: 100%;margin-left: -5px;margin-top:-10px;">
     <div id="xinjiang" class="onpoint"><div class="point"></div><a href="xinjiang">新疆</a></div>
     <div id="xizang" class="onpoint"><div class="point"></div><a href="">西藏</a></div>
     <div id="gansu" class="onpoint"><div class="point"></div><a href="">甘肃</a></div>

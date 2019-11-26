@@ -121,7 +121,7 @@ select o.order_id '订单编号',o.price '订单金额',o.status '状态',
 			 fs.arrival_time '到港时间',fs.sail_length '里程',fs.airplane '机型',b.branch_name '站点名称'
 from orders o
 JOIN ticket_order t
-on o.ticket_order_id = t.ticket_order_id
+on o.order_id = t.order_id
 JOIN flight f
 on o.flight_number = f.flight_number
 JOIN flight_scheduler fs
@@ -168,32 +168,32 @@ where s.sales_id=？
 /*
  *查询航班信息(后台)
  */
-select fs.flight_number '航班号',a1.city '出发地',a2.city '目的地',fs.arrival_time'离港时间',fs.departure_time'到港时间',fs.scheduler'班期',fs.basic_price '基准票价'
-from flight_scheduler fs
-JOIN airport a1
-on fs.from_city = a1.airport_code
-join airport a2
-on fs.to_city = a2.airport_code
+select fs.*,a1.airport_name,a2.airport_name
+FROM flight_scheduler fs
+LEFT JOIN airport a1
+on a1.airport_code = fs.from_city
+LEFT JOIN airport a2
+on a2.airport_code = fs.to_city
+where flight_number = '400600'		
 
 /*
  * 按出发地、目的地、出发时间查询航班信息
  */
-select *
-FROM flight f
-where f.flight_number = (	
-	select fs.flight_number
-	FROM flight_scheduler fs
-	where fs.from_city=(
-		select a1.airport_code 
-		FROM airport a1
-		where a1.city = ""
-	) and fs.to_city=(
-		select a2.airport_code
-		FROM airport a2
-		where a2.city = ""
-	)and fs.start_date= ""
-)
-select * from flight f where f.flight_number = (select fs.flight_number FROM flight_scheduler fs where fs.from_city=( select a1.airport_code FROM airport a1 where a1.city = ？) and fs.to_city=(select a2.airport_code FROM airport a2 where a2.city = ？)and fs.start_date= ？)
 
+select fs.* ,a1.airport_name 'from_airport_name',a2.airport_name 'to_airport_name' 
+						FROM flight_scheduler fs  
+						LEFT JOIN airport a1  
+							on a1.airport_code = fs.from_city 
+						LEFT JOIN airport a2 
+					on a2.airport_code = fs.to_city  
+							where from_city in ( 
+								select airport_code  
+								from airport 
+								where city = '北京' 
+								)and to_city in (  
+								select airport_code 
+								from airport  
+									where city = '上海'
+								)and fs.start_date = '2019-11-08'
 
 

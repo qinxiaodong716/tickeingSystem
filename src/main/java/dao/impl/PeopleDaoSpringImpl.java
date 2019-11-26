@@ -60,9 +60,9 @@ public class PeopleDaoSpringImpl implements IPeopleDao{
 	 * 分页查询所有用户
 	 */
 	@Override
-	public List<People> findAll(int offset, int pageSize) {
-		return jdbcTemplate.query("select * from people limit ?,?",
-				new Object[] {offset,pageSize},
+	public List<People> findAll() {
+		return jdbcTemplate.query("select * from people ",
+				new Object[] {},
 				new BeanPropertyRowMapper<People>(People.class));
 	}
 	/*
@@ -86,5 +86,16 @@ public class PeopleDaoSpringImpl implements IPeopleDao{
 	public int setpassword(String phone, String password) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	@Override
+	public List<People> nameFind(String name) {
+		List<People> result=null;
+		result=jdbcTemplate.query("select people_id,phone,people_name,id_card from people where people_name=?", 
+				new Object[] {name}, 
+				new BeanPropertyRowMapper<>(People.class));
+		if(result.size()>0) {
+			return result;
+		}
+		return result;
 	}
 }

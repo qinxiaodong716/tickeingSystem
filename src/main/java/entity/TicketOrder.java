@@ -19,24 +19,34 @@ public class TicketOrder implements Serializable{
 	private String passengerType;
 	private int branchId;
 	private int salesId;
-	
-	public TicketOrder() {}
-	
-	public TicketOrder(int flightId, String passengerName, String certificationNumber, String orderDate, String level,
-			String passengerType, int branchId, int salesId) {
+	private long orderId;
+	public TicketOrder() {
+		super();
+	}
+	public TicketOrder(int flightId, String passengerName, String certificationNumber, String level,
+			String passengerType, long orderId) {
 		super();
 		this.flightId = flightId;
 		this.passengerName = passengerName;
 		this.certificationNumber = certificationNumber;
-		this.orderDate = orderDate;
+		this.level = level;
+		this.passengerType = passengerType;
+		this.orderId = orderId;
+	}
+	public TicketOrder(int flightId, String passengerName, String certificationNumber, String level,
+			String passengerType, int branchId, int salesId, long orderId) {
+		super();
+		this.flightId = flightId;
+		this.passengerName = passengerName;
+		this.certificationNumber = certificationNumber;
 		this.level = level;
 		this.passengerType = passengerType;
 		this.branchId = branchId;
 		this.salesId = salesId;
+		this.orderId = orderId;
 	}
-
 	public TicketOrder(long ticketOrderId, int flightId, String passengerName, String certificationNumber,
-			String orderDate, String level, String passengerType, int branchId, int salesId) {
+			String orderDate, String level, String passengerType, int branchId, int salesId, long orderId) {
 		super();
 		this.ticketOrderId = ticketOrderId;
 		this.flightId = flightId;
@@ -47,80 +57,71 @@ public class TicketOrder implements Serializable{
 		this.passengerType = passengerType;
 		this.branchId = branchId;
 		this.salesId = salesId;
+		this.orderId = orderId;
 	}
-
-	public long getticketOrderId() {
+	public long getTicketOrderId() {
 		return ticketOrderId;
 	}
-
-	public void setticketOrderId(long ticketOrderId) {
+	public void setTicketOrderId(long ticketOrderId) {
 		this.ticketOrderId = ticketOrderId;
 	}
-
-	public int getflightId() {
+	public int getFlightId() {
 		return flightId;
 	}
-
-	public void setflightId(int flightId) {
+	public void setFlightId(int flightId) {
 		this.flightId = flightId;
 	}
-
-	public String getpassengerName() {
+	public String getPassengerName() {
 		return passengerName;
 	}
-
-	public void setpassengerName(String passengerName) {
+	public void setPassengerName(String passengerName) {
 		this.passengerName = passengerName;
 	}
-
-	public String getcertificationNumber() {
+	public String getCertificationNumber() {
 		return certificationNumber;
 	}
-
-	public void setcertificationNumber(String certificationNumber) {
+	public void setCertificationNumber(String certificationNumber) {
 		this.certificationNumber = certificationNumber;
 	}
-
-	public String getorderDate() {
+	public String getOrderDate() {
 		return orderDate;
 	}
-
-	public void setorderDate(String orderDate) {
+	public void setOrderDate(String orderDate) {
 		this.orderDate = orderDate;
 	}
-
 	public String getLevel() {
 		return level;
 	}
-
 	public void setLevel(String level) {
 		this.level = level;
 	}
-
-	public String getpassengerType() {
+	public String getPassengerType() {
 		return passengerType;
 	}
-
-	public void setpassengerType(String passengerType) {
+	public void setPassengerType(String passengerType) {
 		this.passengerType = passengerType;
 	}
-
-	public int getbranchId() {
+	public int getBranchId() {
 		return branchId;
 	}
-
-	public void setbranchId(int branchId) {
+	public void setBranchId(int branchId) {
 		this.branchId = branchId;
 	}
-
-	public int getsalesId() {
+	public int getSalesId() {
 		return salesId;
 	}
-
-	public void setsalesId(int salesId) {
+	public void setSalesId(int salesId) {
 		this.salesId = salesId;
 	}
-
+	public long getOrderId() {
+		return orderId;
+	}
+	public void setOrderId(long orderId) {
+		this.orderId = orderId;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -130,13 +131,13 @@ public class TicketOrder implements Serializable{
 		result = prime * result + flightId;
 		result = prime * result + ((level == null) ? 0 : level.hashCode());
 		result = prime * result + ((orderDate == null) ? 0 : orderDate.hashCode());
+		result = prime * result + (int) (orderId ^ (orderId >>> 32));
 		result = prime * result + ((passengerName == null) ? 0 : passengerName.hashCode());
 		result = prime * result + ((passengerType == null) ? 0 : passengerType.hashCode());
 		result = prime * result + salesId;
 		result = prime * result + (int) (ticketOrderId ^ (ticketOrderId >>> 32));
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -165,6 +166,8 @@ public class TicketOrder implements Serializable{
 				return false;
 		} else if (!orderDate.equals(other.orderDate))
 			return false;
+		if (orderId != other.orderId)
+			return false;
 		if (passengerName == null) {
 			if (other.passengerName != null)
 				return false;
@@ -181,16 +184,13 @@ public class TicketOrder implements Serializable{
 			return false;
 		return true;
 	}
-
 	@Override
 	public String toString() {
 		return "TicketOrder [ticketOrderId=" + ticketOrderId + ", flightId=" + flightId + ", passengerName="
 				+ passengerName + ", certificationNumber=" + certificationNumber + ", orderDate=" + orderDate
 				+ ", level=" + level + ", passengerType=" + passengerType + ", branchId=" + branchId + ", salesId="
-				+ salesId + "]";
+				+ salesId + ", orderId=" + orderId + "]";
 	}
-	
-	
 	
 	
 }

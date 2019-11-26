@@ -4,11 +4,8 @@ import java.util.Date;
 import java.util.List;
 
 import entity.FlightScheduler;
-import util.MiniPager;
 
 public interface IFlightSchedulerService {
-
-	
 
 	List<FlightScheduler> listFlightSchedulers(int pageNo,int pageSize);
 	//*添加一条记录
@@ -20,6 +17,14 @@ public interface IFlightSchedulerService {
 	public int update(FlightScheduler flightScheduler);
 	//*删除
 	public int delete(String flightNumber);
-	
+	/*
+	 * FlightScheduler  业务接口
+	 */
+
+	List<FlightScheduler> findAll();
+	List<FlightScheduler> listFlightSchedulers(String fromCity,String toCity,String date);
+	List<FlightScheduler> listFlightSchedulers(String flightNumber);
+	int saveOrUpdate(FlightScheduler flightScheduler);
+	List<FlightScheduler> listFlightSchedulers();
 	
 }

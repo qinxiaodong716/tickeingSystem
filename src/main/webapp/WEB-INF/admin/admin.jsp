@@ -22,9 +22,9 @@
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
             <li class="layui-nav-item"><a href="HomePage" target="view">首页</a></li>
-            <li class="layui-nav-item"><a href="">营业员</a></li>
-            <li class="layui-nav-item"><a href="">营业点</a></li>
-            <li class="layui-nav-item"><a href="">用户</a></li>
+            <li class="layui-nav-item"><a href="adminsales" target="view">营业员</a></li>
+            <li class="layui-nav-item"><a href="adminbranch" target="view">营业点</a></li>
+            <li class="layui-nav-item"><a href="adminpeople" target="view">用户</a></li>
             <li class="layui-nav-item">
                 <a href="javascript:;">其它系统</a>
                 <dl class="layui-nav-child">
@@ -76,7 +76,7 @@
                         <dd><a href="">超链接</a></dd>
                     </dl>
                 </li> -->
-                <li class="layui-nav-item"><a href="FlightManagement" target="view">航班管理</a></li>
+                <li class="layui-nav-item"><a href="flightmanagement" target="view">航班管理</a></li>
 
             </ul>
         </div>
@@ -92,7 +92,7 @@
         <div class="right-paihangbang"></div>-->
         <!-- 内容主体区域 -->
         <div style="padding: 15px;height: 95%">
-            <iframe class="rihgt-view" name="view" style="width: 99%;height: 100%"></iframe>
+            <iframe class="rihgt-view" src="HomePage" name="view" style="width: 99%;height: 100%"></iframe>
         </div>
     </div>
 

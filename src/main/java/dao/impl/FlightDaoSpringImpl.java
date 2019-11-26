@@ -11,7 +11,7 @@ import dao.prototype.IFlightDao;
 import entity.Flight;
 
 @Repository("flightDaoImpl")
-public class FlightDaoImpl implements IFlightDao{
+public class FlightDaoSpringImpl implements IFlightDao{
 	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
@@ -44,10 +44,41 @@ public class FlightDaoImpl implements IFlightDao{
 	}
 	
 	@Override
-	public List<Flight> listFlightSchedulers(String fromCity, String toCity, String date) {
-		return jdbcTemplate.query("select * from flight f where f.flight_number = (select fs.flight_number FROM flight_scheduler fs where fs.from_city=( select a1.airport_code FROM airport a1 where a1.city = ?) and fs.to_city=(select a2.airport_code FROM airport a2 where a2.city = ?)and fs.start_date= ?)", 
-				new Object[] {fromCity,toCity,date},
+	public List<Flight> listFlight(String flightNumber, String date) {
+		return jdbcTemplate.query("select flight_id from flight f where f.flight_number = ? and f.departure_date = ?", 
+				new Object[] {flightNumber,date},
 				new BeanPropertyRowMapper<>(Flight.class));
+	}
+
+	@Override
+	public int operation(int flightId, String operation, String tp) {
+		int i = 0;
+		if("td".equals(operation)) {
+			if("gp".equals(tp)) {
+				i = jdbcTemplate.update("update flight set first_class_remain_seats = first_class_remain_seats-1 where flight_id=?", 
+						new Object[] {flightId});
+			}else {
+				i = jdbcTemplate.update("update flight set first_class_remain_seats = first_class_remain_seats+1 where flight_id=?", 
+						new Object[] {flightId});
+			}
+		}else if("sw".equals(operation)){
+			if("gp".equals(tp)) {
+				i = jdbcTemplate.update("update flight set business_class_remain_seats = business_class_remain_seats-1 where flight_id=?", 
+						new Object[] {flightId});
+			}else {
+				i = jdbcTemplate.update("update flight set business_class_remain_seats = business_class_remain_seats+1 where flight_id=?", 
+						new Object[] {flightId});
+			}
+		}else {
+			if("gp".equals(tp)) {
+				i = jdbcTemplate.update("update flight set economy_class_remain_seats = economy_class_remain_seats-1 where flight_id=?", 
+						new Object[] {flightId});
+			}else {
+				i = jdbcTemplate.update("update flight set economy_class_remain_seats = economy_class_remain_seats+1 where flight_id=?", 
+						new Object[] {flightId});
+			}
+		}
+		return i;
 	}
 
 }

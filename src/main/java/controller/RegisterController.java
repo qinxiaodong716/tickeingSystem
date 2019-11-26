@@ -16,7 +16,7 @@ import service.prototype.IPeopleService;
  * 注册Controller
  */
 @Controller
-public class registerController {
+public class RegisterController {
 
 	@Autowired
 	private IPeopleService ips;

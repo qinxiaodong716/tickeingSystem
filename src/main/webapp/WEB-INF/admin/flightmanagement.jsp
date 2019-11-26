@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -27,9 +27,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="BOX">
 
 
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="border-radius: 0;">添加新航班信息</button>
-
-<form action="FMadd">
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="border-radius: 0;float: left">添加新航班信息</button>
+<form action="" method="post" style="float: right ;padding-right: 20px;">
+	<input type="text" placeholder="请输入航班号" style="height: 46px;">
+	<input type="submit" value="搜索" style="height: 46px;width: 80px;">
+</form>
+<form action="saveflightscheduler">
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -42,15 +45,52 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</h4>
 			</div>
 			<div class="modal-body">
-				<ul>
-					<li><span>航班号</span><input type="text" name="flightNumber"></li>
-					<li><span>出发地</span><input type="text" name="fromCity"></li>
-					<li><span>目的地</span><input type="text" name="toCity"></li>
-					<li><span>离港时间</span><input type="text" name="departureTime"></li>
-					<li><span>到港时间</span><input type="text" name="arrivalTime"></li>
-					<li><span>班期</span><input type="text" name="scheduler"></li>
-					<li><span>基准票价</span><input type="text" name="basicPrice"></li>
-				</ul>
+				<table>
+					<tr>
+                        <td>航班号</td>
+                        <td><input type="text" name="flightNumber"></td>
+                    </tr>
+                    <tr>
+                        <td>出发时间</td>
+                        <td><input type="text" name="startDate"></td>
+                    </tr>
+                    <tr>
+                        <td>结束时间</td>
+                        <td><input type="text" name="endDate"></td>
+                    </tr>
+					<tr>
+                        <td>出发地</td>
+                        <td><input type="text" name="fromCity"></td>
+                    </tr>
+					<tr>
+                        <td>目的地</td>
+                        <td><input type="text" name="toCity"></td>
+                    </tr>
+					<tr>
+                        <td>离港时间</td>
+                        <td><input type="text" name="departureTime"></td>
+                    </tr>
+					<tr>
+                        <td>到港时间</td>
+                        <td><input type="text" name="arrivalTime"></td>
+                    </tr>
+					<tr>
+                        <td>班期</td>
+                        <td><input type="text" name="scheduler"></td>
+                    </tr>
+					<tr>
+                        <td>基准票价</td>
+                        <td><input type="text" name="basicPrice"></td>
+                    </tr>
+                    <tr>
+                        <td>执行机型</td>
+                        <td><input type="text" name="airplane"></td>
+                    </tr>
+                    <tr>
+                        <td>航程</td>
+                        <td><input type="text" name="sailLength"></td>
+                    </tr>
+				</table>
 				
 			</div>
 			<div class="modal-footer">
@@ -91,18 +131,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         		<td>${fa.endDate}</td>
         		<td>${fa.fromCity}</td>
         		<td>${fa.toCity}</td>
-        		<td>${fa.departureTime}</td>
+        		<td class="departureTime">${fa.departureTime}</td>
         		<td>${fa.arrivalTime}</td>
         		<td>${fa.airplane}</td>
         		<td>${fa.scheduler}</td>
         		<td>${fa.sailLength}</td>
         		<td>${fa.basicPrice}</td>
-        		<td><button>修改</button><button>删除</button></td>
+        		<td>
+                    <a href="deleteflightscheduler/${fa.flightNumber}">删除</a>
+                    <button>修改</button>
+                </td>
         	</tr>
         </c:forEach>
     </table>
 </div>
 <script src="/hangkong/assets/js/jquery-1.7.2.js"></script>
+<script>
+    $(function () {
+        alert($(".departureTime").val())
+    })
+</script>
 
 </body>
 </html>

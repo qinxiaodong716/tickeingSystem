@@ -22,6 +22,7 @@ public class FlightServiceDaoImpl implements IFlightService{
 
 	@Override
 	public int saveOrUpdate(Flight flight) {
+		
 		return flightDao.saveOrUpdate(flight);
 	}
 
@@ -30,8 +31,8 @@ public class FlightServiceDaoImpl implements IFlightService{
 		return flightDao.delete(flightid);
 	}
 	@Override
-	public List<Flight> listFlightSchedulers(String fromCity, String toCity, String date) {
-		return flightDao.listFlightSchedulers(fromCity, toCity, date);
+	public List<Flight> listFlight(String flightNumber, String date) {
+		return flightDao.listFlight(flightNumber,  date);
 	}
 
 }

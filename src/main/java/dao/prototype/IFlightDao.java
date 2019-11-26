@@ -11,7 +11,8 @@ import entity.Flight;
  */
 public interface IFlightDao {
 	List<Flight> find(int offset,int pageSize);
-	List<Flight> listFlightSchedulers(String fromCity,String toCity,String date);
+	List<Flight> listFlight(String flightNumber,String date);
 	int saveOrUpdate(Flight flight);
 	int delete(int flightId);
+	int operation(int flightId,String operation,String tp);
 }

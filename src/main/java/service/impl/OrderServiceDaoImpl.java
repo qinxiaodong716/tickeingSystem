@@ -14,14 +14,15 @@ public class OrderServiceDaoImpl implements IOrderService{
 	
 	@Autowired
 	private IOrderDao iod;
+	
 
 	@Override
-	public int save(Order order) {
+	public long save(Order order) {
 		return iod.save(order);
 	}
 
 	@Override
-	public List<Order> find(int id) {
+	public List<Order> find(long id) {
 		return iod.find(id);
 	}
 

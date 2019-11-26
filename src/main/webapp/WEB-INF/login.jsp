@@ -115,43 +115,27 @@
                 </ul>
                 <div class="layui-tab-content" style="padding-top: 20px">
                     <div class="layui-tab-item layui-show">
-                        <dl>
-                            <dt>登录名</dt>
-                            <dd>
-                                <input type="text" name="username" class="input-long" placeholder="请输入用户名" value>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>密码</dt>
-                            <dd>
-                                <input type="password" name="password" class="input-long" placeholder="请输入登录密码" value>
-                            </dd>
-                        </dl>
-                        <dl class="ten">
-                            <dd class="r">
-                                <input type="button" class="button" name="login" value="登录">
-                            </dd>
-                        </dl>
+	                    <form action="loginservice" method="post">
+	                        <dl>
+	                            <dt>登录名</dt>
+	                            <dd>
+	                                <input type="text" name="phone" class="input-long" placeholder="请输入用户名" value>
+	                            </dd>
+	                        </dl>
+	                        <dl>
+	                            <dt>密码</dt>
+	                            <dd>
+	                                <input type="password" name="password" class="input-long" placeholder="请输入登录密码" value>
+	                            </dd>
+	                        </dl>
+	                        <dl class="ten">
+	                            <dd class="r">
+	                                <input type="submit" class="button" name="login" value="登录">
+	                            </dd>
+	                        </dl>
+	                       </form>
                     </div>
-                    <div class="layui-tab-item">
-						<dl>
-                            <dt>登录名</dt>
-                            <dd>
-                                <input type="text" name="username" class="input-long" placeholder="请输入手机号" value>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>密码</dt>
-                            <dd>
-                                <input type="password" name="password" class="input-long" placeholder="请输入登录密码" value>
-                            </dd>
-                        </dl>
-                        <dl class="ten">
-                            <dd class="r">
-                                <input type="button" class="button" name="login" value="登录">
-                            </dd>
-                        </dl>
-					</div>
+                    <div class="layui-tab-item">内容2</div>
                 </div>
             </div>
         </div>

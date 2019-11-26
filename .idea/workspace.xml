@@ -1,17 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d282148b-8920-4f92-9ee1-f6e6a0a81260" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/BranchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/BranchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/config/JDBConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/config/TestConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/TestConfig.java" afterDir="false" />
+    <list default="true" id="3ab9134d-0c65-490b-94ca-9789b453dc3e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/people/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/people/payment.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/sales/inquirepeople.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/sales/inquirepeopleager.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/sales/seekflight.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/sales/tuipiao.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/people.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/qxd.buyticket.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/qxd.findorder.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/qxd.index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/qxd.inquireflight.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/qxd.payment.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/qxd.sales.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/config/WebInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/WebInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/BranchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/BranchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/FlightSchedulerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/FlightSchedulerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/SalesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SalesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/registerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/AdminDaoSpringImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/AdminDaoSpringImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/AirplanModelDaoSpringImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/AirplanModelDaoSpringImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/BranchDaoSpringImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/BranchDaoSpringImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/FlightDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/FlightDaoSpringImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/FlightSchedulerDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/OrderDaoSpringImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/OrderDaoSpringImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/PeopleDaoSpringImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/PeopleDaoSpringImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/SalesDaoSpringImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/SalesDaoSpringImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/TicketOrderDaoSpringImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/TicketOrderDaoSpringImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/prototype/IAirplaneModelDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/prototype/IAirplaneModelDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/prototype/IFlightDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/prototype/IFlightDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/prototype/IFlightSchedulerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/prototype/IFlightSchedulerDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/prototype/IOrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/prototype/IOrderDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/prototype/IPeopleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/prototype/IPeopleDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/prototype/ISalesDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/prototype/ISalesDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entity/Flight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Flight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/FlightScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/FlightScheduler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Sales.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Sales.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/TicketOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/TicketOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/impl/AirplanModelServiceDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/impl/AirplanModelServiceDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/impl/FlightSchedulerServiceDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/impl/FlightSchedulerServiceDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/impl/FlightServiceDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/impl/FlightServiceDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/impl/OrderServiceDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/impl/OrderServiceDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/impl/PeopleServiceDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/impl/PeopleServiceDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/impl/SalesServiceDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/impl/SalesServiceDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/impl/TicketOrderServiceDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/impl/TicketOrderServiceDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/prototype/IAirplaneModelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/prototype/IAirplaneModelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/prototype/IFlightSchedulerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/prototype/IFlightSchedulerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/prototype/IFlightService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/prototype/IFlightService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/prototype/IOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/prototype/IOrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/prototype/IPeopleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/prototype/IPeopleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/prototype/ISalesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/prototype/ISalesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/FlightManagement.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/flightmanagement.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/HomePage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/HomePage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/admin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/img/plane.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/image/plane.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/img/timg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/image/timg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/img/zhongguo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/image/zhongguo.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Dao/test/TestFlightDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Dao/test/TestFlightDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Dao/test/TestOrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Dao/test/TestOrderDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Dao/test/TestPeopleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Dao/test/TestPeopleDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Dao/test/TestTicketOrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Dao/test/TestTicketOrderDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/service/test/TestFilgthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/service/test/TestFilgthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/service/test/TestOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/service/test/TestOrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/service/test/TestPeopleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/service/test/TestPeopleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/service/test/TestSalesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/service/test/TestSalesService.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,32 +83,45 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="E:\java\ruanjian\eclipse\eclipse\ticketingSystem\.idea" />
-      </set>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="E:\java\ruanjian\maven\conn" />
+        <option name="mavenHome" value="E:/java/ruanjian/maven" />
+        <option name="userSettingsFile" value="E:\java\ruanjian\maven\conf\settings.xml" />
+      </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="1TGXc3Re24PxDIlmjaXpl054xCd" />
+  <component name="ProjectId" id="1Tux69qwnQWoez7CJyxENkj8rTK" />
   <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="E:/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\workspace\tickeingSystem\src\main\webapp\WEB-INF\admin" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace\tickeingSystem\src\main\webapp\WEB-INF\admin" />
+      <recent name="D:\workspace\tickeingSystem\src\main\webapp\WEB-INF\sales" />
+      <recent name="D:\workspace\tickeingSystem\src\main\webapp\assets\css" />
+      <recent name="D:\workspace\tickeingSystem\src\main\webapp\assets\image" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -66,13 +140,23 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d282148b-8920-4f92-9ee1-f6e6a0a81260" name="Default Changelist" comment="" />
-      <created>1573087481790</created>
+      <changelist id="3ab9134d-0c65-490b-94ca-9789b453dc3e" name="Default Changelist" comment="" />
+      <created>1574323603082</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1573087481790</updated>
-      <workItem from="1573087485730" duration="814000" />
-      <workItem from="1573121105869" duration="1205000" />
+      <updated>1574323603082</updated>
+      <workItem from="1574323604538" duration="68000" />
+      <workItem from="1574323686768" duration="915000" />
+      <workItem from="1574335000393" duration="3164000" />
+      <workItem from="1574346183909" duration="3941000" />
+      <workItem from="1574403660529" duration="4869000" />
+      <workItem from="1574429292876" duration="3561000" />
+      <workItem from="1574490972148" duration="6986000" />
+      <workItem from="1574511421173" duration="2598000" />
+      <workItem from="1574558292038" duration="6232000" />
+      <workItem from="1574577277921" duration="7329000" />
+      <workItem from="1574586776185" duration="6070000" />
+      <workItem from="1574730202256" duration="105000" />
     </task>
     <servers />
   </component>
@@ -91,5 +175,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/people/buyticket.jsp</url>
+          <line>15</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

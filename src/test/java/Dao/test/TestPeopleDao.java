@@ -37,6 +37,6 @@ public class TestPeopleDao {
 	}
 	@Test
 	public void testFindAll() {
-		System.out.println(ipd.findAll(1, 10));
+		System.out.println(ipd.findAll());
 	}
 }

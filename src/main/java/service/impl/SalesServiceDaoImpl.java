@@ -36,6 +36,11 @@ public class SalesServiceDaoImpl implements ISalesService{
 		return isd.find(phone);
 	}
 
+	@Override
+	public List<Sales> findAll() {
+		return isd.findAll();
+	}
+
 	
 
 }

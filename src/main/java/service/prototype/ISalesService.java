@@ -11,4 +11,5 @@ public interface ISalesService {
 	int login(String phone,String password);
 	int delete(int id);
 	List<Sales> find(String phone);
+	List<Sales> findAll();
 }

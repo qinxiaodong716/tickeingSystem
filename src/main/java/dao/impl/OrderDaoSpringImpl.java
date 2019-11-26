@@ -17,23 +17,25 @@ public class OrderDaoSpringImpl implements IOrderDao{
 	private JdbcTemplate jdbcTemplate;
 
 	@Override
-	public int save(Order order) {
-		return jdbcTemplate.update("insert into orders(ticket_order_id,price,status,flight_number,operator_phone) values(?,?,?,?,?)",
-				new Object[] {order.getTicketOrderId(),order.getPrice(),order.getStatus(),order.getFlightNumber(),order.getSalesName()});
+	public long save(Order order) {
+		jdbcTemplate.update("insert into orders(operator_phone,price,status,flight_number,operator_type,linkman_name,linkman_phone) values(?,?,?,?,?,?,?)",
+				new Object[] {order.getOperatorPhone(),order.getPrice(),order.getStatus(),order.getFlightNumber(),order.getOperatorType(),order.getlinkmanName(),order.getLinkmanPhone()});
+		List<Order> res = jdbcTemplate.query("select Max(order_id) 'order_id' from orders", new BeanPropertyRowMapper<>(Order.class));
+		return res.get(0).getOrderId();
 	}
 
 	@Override
-	public List<Order> find(int id) {
+	public List<Order> find(long id) {
 		return jdbcTemplate.query("select o.order_id ,o.price,o.status,s.sales_name," +   //3
-				" f.flight_id,f.flight_number,f.departure_date," +        //3
+				" f.flight_id,f.flight_number,f.departure_date,o.linkman_phone," +        //3
 				" t.ticket_order_id,t.passenger_name,t.certification_number," +  //3
 				" t.order_date, t.level,t.passenger_type,t.branch_id," + //4
-				" fs.from_city, fs.to_city,fs.departure_time," + //3
+				" a1.airport_name 'from_airport_name', a2.airport_name 'to_airport_name',fs.departure_time," + //3
 				" fs.arrival_time,fs.sail_length,fs.airplane,"+  //3
-				" a1.city 'from_Name',a2.city 'to_Name',b.branch_name" +  //3
+				" a1.city 'from_city',a2.city 'to_city',b.branch_name " +  //3
 				"from orders o " + 
 				"JOIN ticket_order t " + 
-				"on o.ticket_order_id = t.ticket_order_id " + 
+				"on o.order_id = t.order_id " + 
 				"JOIN flight f " + 
 				"on o.flight_number = f.flight_number " + 
 				"JOIN flight_scheduler fs " + 
@@ -46,7 +48,7 @@ public class OrderDaoSpringImpl implements IOrderDao{
 				"on b.branch_id = t.branch_id " +
 				"join sales s " +
 				"on s.sales_id = t.sales_id " +
-				"where order_id=?",
+				"where o.order_id=?",
 				new Object[] {id},
 				new BeanPropertyRowMapper<>(Order.class));
 	}
@@ -54,15 +56,15 @@ public class OrderDaoSpringImpl implements IOrderDao{
 	@Override
 	public List<Order> find(String phone) {
 		return jdbcTemplate.query("select o.order_id,o.price,o.status,s.sales_name,"+   //3
-				"f.flight_id,f.flight_number,f.departure_date," +        //3
+				"f.flight_id,f.flight_number,f.departure_date,o.linkman_phone," +        //3
 				"t.ticket_order_id,t.passenger_name,t.certification_number," +  //3
 				"t.order_date, t.level,t.passenger_type,t.branch_id," + //4
-				"fs.from_city, fs.to_city,fs.departure_time," + //3
+				"a1.airport_name 'from_airport_name', a2.airport_name 'to_airport_name',fs.departure_time,fs.departure_time," + //3
 				"fs.arrival_time,fs.sail_length,fs.airplane,"+  //3
-				"a1.city 'from_Name',a2.city 'to_Name',b.branch_name "+  //3
+				"a1.city 'from_city',a2.city 'to_city',b.branch_name "+  //3
 				"from orders o "+ 
 				"JOIN ticket_order t "+ 
-				"on o.ticket_order_id = t.ticket_order_id "+ 
+				"on o.order_id = t.order_id "+ 
 				"JOIN flight f " + 
 				"on o.flight_number = f.flight_number "+ 
 				"JOIN flight_scheduler fs "+ 
@@ -78,6 +80,13 @@ public class OrderDaoSpringImpl implements IOrderDao{
 				"where operator_phone=?",
 				new Object[] {phone},
 				new BeanPropertyRowMapper<>(Order.class));
+	}
+
+	@Override
+	public int updata(long orderId, String status) {
+		jdbcTemplate.update("update orders set status = ? where order_id = ?",
+				new Object[] {status,orderId+""});
+		return 0;
 	}
 	
 	

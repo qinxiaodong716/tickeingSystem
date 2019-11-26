@@ -34,6 +34,6 @@ public class TestFilgthService {
 	}
 	@Test
 	public void testListFlightSchedulers2() {
-		System.out.println(ifs.listFlightSchedulers("CKJ","PEk","2019-10-02"));
+		System.out.println(ifs.listFlight("400600","2019-11-08").get(0).getFlightId());
 	}
 }

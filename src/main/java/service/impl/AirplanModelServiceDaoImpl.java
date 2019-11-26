@@ -25,7 +25,7 @@ public class AirplanModelServiceDaoImpl implements IAirplaneModelService{
 	}
 
 	@Override
-	public List<AirplaneModel> find(String model) {
+	public AirplaneModel find(String model) {
 		return iamd.find(model);
 	}
 

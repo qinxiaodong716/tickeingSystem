@@ -17,7 +17,7 @@
 		<!-- 自定义版本标记 -->
 		<spring.version>5.1.7.RELEASE</spring.version>
 	</properties>
-
+	
 	<!-- 3.配置项目所需要的第三方jar包 -->
 	<dependencies>
 		<!-- servlet-api -->
@@ -115,7 +115,13 @@
     		<artifactId>fastjson</artifactId>
     		<version>1.2.62</version>
 		</dependency>
-
+		<!-- 蚂蚁金服支付宝 -->
+		<dependency>    
+		    <groupId>com.alipay.sdk</groupId>
+		    <artifactId>alipay-sdk-java</artifactId>
+		    <version>3.0.0</version>
+		</dependency>
+		
 
 	</dependencies>
 

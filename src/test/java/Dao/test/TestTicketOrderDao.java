@@ -7,9 +7,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import config.TestConfig;
-import dao.prototype.IAdminDao;
 import dao.prototype.ITicketOrderDao;
-import entity.Admin;
 import entity.TicketOrder;
 
 /*
@@ -24,7 +22,7 @@ public class TestTicketOrderDao {
 	
 	@Test
 	public void testSaveOrUpdate() {
-		TicketOrder ticketOrder= new TicketOrder(10,"qxd","141124199807010170","2019-10-01","1","c",20,30);
+		TicketOrder ticketOrder= new TicketOrder(10,"qxd","141124199807010170","1","c",1);
 		System.out.println(itd.saveOrUpdate(ticketOrder));
 	}
 	

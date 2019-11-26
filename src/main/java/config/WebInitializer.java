@@ -30,7 +30,7 @@ public class WebInitializer implements WebApplicationInitializer{
 					servletContext.addServlet("dispatcher", new DispatcherServlet(ctx));
 			servlet.addMapping("/");
 			servlet.setLoadOnStartup(1);
-		// 5.添加字符编码的过看不过滤器
+		// 5.添加字符编码的过滤器
 			FilterRegistration.Dynamic encodingFilte = servletContext.addFilter("encodingFilter", CharacterEncodingFilter.class);
 			encodingFilte.setInitParameter("encoding", String.valueOf(StandardCharsets.UTF_8));
 			encodingFilte.setInitParameter("forceEncoding", "true");

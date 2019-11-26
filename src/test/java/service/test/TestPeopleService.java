@@ -29,7 +29,11 @@ public class TestPeopleService {
 	}
 	@Test
 	public void testphonefind() {
-		System.out.println(ips.find("15103467169"));
+		System.out.println(ips.find("19935813304"));
+	}
+	@Test
+	public void testphonefind1() {
+		System.out.println(ips.nameFind("lisi"));
 	}
 	
 }

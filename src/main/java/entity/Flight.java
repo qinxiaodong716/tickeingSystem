@@ -98,6 +98,9 @@ public class Flight implements Serializable{
 	public void setSeasonDiscount(double seasonDiscount) {
 		this.seasonDiscount = seasonDiscount;
 	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 	@Override
 	public int hashCode() {
@@ -152,10 +155,10 @@ public class Flight implements Serializable{
 		return "Flight [flightId=" + flightId + ", flightNumber=" + flightNumber + ", departureDate=" + departureDate
 				+ ", firstClassRemainSeats=" + firstClassRemainSeats + ", businessClassRemainSeats="
 				+ businessClassRemainSeats + ", economyClassRemainSeats=" + economyClassRemainSeats
-				+ ", seasonDiscount=" + seasonDiscount + "]";
+				+ ", seasonDiscount=" + seasonDiscount;
 	}
 	
 	
-	
+
 	
 }

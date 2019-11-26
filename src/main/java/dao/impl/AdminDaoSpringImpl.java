@@ -51,7 +51,4 @@ public class AdminDaoSpringImpl implements IAdminDao{
 		return jdbcTemplate.update("delete from admin where admin_id=?",
 				new Object[] {id});
 	}
-	
-	
-
 }

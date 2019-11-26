@@ -31,10 +31,10 @@ public class AirplanModelDaoSpringImpl implements IAirplaneModelDao{
 	}
 
 	@Override
-	public List<AirplaneModel> find(String model) {
-		return jdbcTemplate.query("select * from airplane_model where model=?",
-				new Object[] {model},
-				new BeanPropertyRowMapper<>(AirplaneModel.class));
+	public AirplaneModel find(String model) {
+		return jdbcTemplate.queryForObject("select * from airplane_model where model=?",
+				 new Object[] {model},
+				 new BeanPropertyRowMapper<AirplaneModel>(AirplaneModel.class));
 	}
 
 	@Override

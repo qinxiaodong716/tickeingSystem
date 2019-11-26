@@ -28,6 +28,6 @@ public class TestFlightDao {
 	}
 	@Test
 	public void testListFlightSchedulers2() {
-		System.out.println(ifd.listFlightSchedulers("CKJ","PEk","2019-10-02"));
+		System.out.println(ifd.listFlight("400600","2019-11-08").get(0).getFlightId());
 	}
 }

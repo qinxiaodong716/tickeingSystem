@@ -1,0 +1,14 @@
+body,html{
+    margin: 0;
+    padding: 0;
+}
+.qxd_ddxx{
+    background: #FFFFFF;
+    width: 1200px;
+    margin: auto;
+    height: 530px;
+}
+table{
+    width:1200px;
+    background: #FFFFFF;
+}

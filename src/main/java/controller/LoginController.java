@@ -32,6 +32,10 @@ public class LoginController {
 	//index进入登录页
 	@RequestMapping("/index")
 	public String index() {
+		return "people/index";
+	}
+	@RequestMapping("/login")
+	public String login() {
 		return "login";
 	}
 	//进入数据管理员页面
@@ -55,11 +59,12 @@ public class LoginController {
 		String phone=request.getParameter("phone");
 		String password=request.getParameter("password");
 		//int identity=Integer.parseInt(request.getParameter("identity"));
-		int identity=3;
+		int identity=1;
 		if(identity==1) {
 			int result = ias.login(phone,password);
 			if(result>0) {
 				request.getSession().setAttribute("phone", phone);
+				request.getSession().setAttribute("login", "yes");
 				request.getSession().setAttribute("identity", identity);
 				try {
 					response.sendRedirect("admin");
@@ -77,6 +82,7 @@ public class LoginController {
 			int result = iss.login(phone, password);
 			if(result>0) {
 				request.getSession().setAttribute("phone", phone);
+				request.getSession().setAttribute("login", "yes");
 				request.getSession().setAttribute("identity", identity);
 				try {
 					response.sendRedirect("sales");
@@ -94,9 +100,10 @@ public class LoginController {
 			List<People> result = ips.login(phone, password);
 			if(result.size()>0) {
 				request.getSession().setAttribute("phone", phone);
+				request.getSession().setAttribute("login", "yes");
 				request.getSession().setAttribute("identity", identity);
 				try {
-					response.sendRedirect("people");
+					response.sendRedirect("index");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -108,26 +115,40 @@ public class LoginController {
 				}
 			}
 		}
-		
-		
 	}
 	//获取用户名
 	@RequestMapping("/uname")
 	@ResponseBody
 	public String username(HttpSession session) {
-		String phone = session.getAttribute("phone").toString();
-		int identity = Integer.parseInt(session.getAttribute("identity").toString());
-		if(identity==1) {
-			List<People> resu = ips.find(phone);
-			return resu.get(0).getPeopleName();
-		}else if(identity==2) {
-			List<Sales> resu = iss.find(phone);
-			return resu.get(0).getSalesName();
-		}else {
-			List<People> resu = ips.find(phone);
-			return resu.get(0).getPeopleName();
+		if("yes".equals(session.getAttribute("login")+"")){
+			String phone = session.getAttribute("phone").toString();
+			int identity = Integer.parseInt(session.getAttribute("identity").toString());
+			if(identity==1) {
+				List<People> resu = ips.find(phone);
+				return resu.get(0).getPeopleName();
+			}else if(identity==2) {
+				List<Sales> resu = iss.find(phone);
+				return resu.get(0).getSalesName();
+			}else {
+				List<People> resu = ips.find(phone);
+				return resu.get(0).getPeopleName();
+			}
 		}
-		
+		return "";
 	}
-
+	//退出登录
+	@RequestMapping("/outlogin")
+	public void outlogin(HttpSession session,HttpServletResponse response) {
+		if("yes".equals(session.getAttribute("login"))){
+			session.removeAttribute("login");
+			session.removeAttribute("phone");
+			session.removeAttribute("phone");
+		}
+		try {
+			response.sendRedirect("index");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

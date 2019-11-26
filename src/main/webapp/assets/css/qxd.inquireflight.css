@@ -1,0 +1,139 @@
+body,html{
+    margin: 0;
+    padding: 0;
+}
+.qxd_head_nav{
+    width:100%;
+    height:50px;
+    background: #4E5465;
+}
+.qxd_head_nav_mid{
+    width:1200px;
+    height:100%;
+    margin: auto;
+}
+.qxd_head_nav_mid_left{
+    width:800px;
+    height:100%;
+    float:left;
+}
+.qxd_head_nav_mid_left>p{
+    margin: 10px 10px;
+    float:left;
+}
+.qxd_head_nav_mid_right{
+    width:200px;
+    height:100%;
+    float:right;
+}
+.qxd_head_nav_mid_right>p{
+    margin: 10px 10px;
+    float:right;
+}
+.qxd_con_nav{
+    width:100%;
+    height:150px;
+}
+.qxd_con_nav_mid{
+    width:1200px;
+    height:100%;
+    margin: auto;
+}
+.qxd_log1{
+    width:215px;
+    height:45px;
+    background: url("http://static-cdn.ceair.com/resource/images/public/logo_l.png") no-repeat;
+    margin-top: 50px;
+    float: left;
+}
+.qxd_log2{
+    width:50px;
+    height:45px;
+    background:url("http://static-cdn.ceair.com/resource/images/public/logo_r.png") no-repeat;
+    margin:50px 0 0 10px;
+    float: left;
+}
+.qxd_log3{
+    width:60px;
+    height:60px;
+    background:url("http://static-cdn.ceair.com/resource/images/index/hjzx.png")no-repeat;
+    margin:40px 20px;
+    float: left;
+}
+.qxd_con_nav_right{
+    width:700px;
+    height: 40px;
+    float: right;
+    padding-top:60px;
+}
+.qxd_con_nav_right>span{
+    width:80px;
+    display:block;
+    float: left;
+    text-align: center;
+    cursor:pointer;
+}
+.qxd_carousel{
+    width:100%;
+    height:500px;
+    background: url("http://www.ceair.com/upload/2018/9/20190925daxingjichang.jpg");
+    padding-top:50px;
+}
+.qxd_carousel_control{
+    width: 1000px;
+    height: 400px;
+    margin: auto;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background: #ffffff;
+    overflow: hidden;
+}
+.qxd_carousel_control_left{
+    width: 150px;
+    height: 100%;
+    overflow: hidden;
+    background: #4E5465;
+    float:left;
+}
+.qxd_control{
+    width: 100%;
+    height: 24%;
+    font-size: 20px;
+    line-height: 100px;
+    text-align: center;
+    border-top:1px solid #e6e6e6;
+}
+.qxd_carousel_control_right{
+    height:100%;
+    width:840px;
+    float: right;
+}
+.qxd_carousel_control_right_top{
+    height:60px;
+    width:840px;
+    border-bottom: 2px solid #e6e6e6;
+}
+.qxd_carousel_control_right_top_carousel{
+    width: 25%;
+    height: 100%;
+    float: left;
+    line-height: 60px;
+    text-align: center;
+}
+.qxd_in{
+    width: 1200px;
+    margin: auto;
+    background: #ffffff;
+    height: 530px;
+}
+.sousuo{
+    width: 1200px;
+    margin: auto;
+}
+.sousuo>table{
+    width: 1200px;
+}
+.hbxx{
+	width: 1200px;
+	text-align: center;
+}
