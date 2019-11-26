@@ -128,6 +128,13 @@
 	                                <input type="password" name="password" class="input-long" placeholder="请输入登录密码" value>
 	                            </dd>
 	                        </dl>
+	                        <dl>
+	                        	<dd>
+	                        		管理员<input type="radio" value="1" name="identity">
+                                    售票员<input type="radio" value="2" name="identity">
+                                    用户<input type="radio" value="3" name="identity">
+	                        	</dd>
+	                        </dl>
 	                        <dl class="ten">
 	                            <dd class="r">
 	                                <input type="submit" class="button" name="login" value="登录">

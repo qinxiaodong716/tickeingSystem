@@ -58,8 +58,7 @@ public class LoginController {
 	public void loginservice(HttpServletRequest request,HttpServletResponse response) {
 		String phone=request.getParameter("phone");
 		String password=request.getParameter("password");
-		//int identity=Integer.parseInt(request.getParameter("identity"));
-		int identity=1;
+		int identity=Integer.parseInt(request.getParameter("identity"));
 		if(identity==1) {
 			int result = ias.login(phone,password);
 			if(result>0) {
