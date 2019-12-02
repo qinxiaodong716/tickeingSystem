@@ -14,5 +14,6 @@ public interface IFlightDao {
 	List<Flight> listFlight(String flightNumber,String date);
 	int saveOrUpdate(Flight flight);
 	int delete(int flightId);
+	int delete(String flightNumber);
 	int operation(int flightId,String operation,String tp);
 }

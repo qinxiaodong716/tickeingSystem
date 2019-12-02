@@ -10,6 +10,6 @@ public interface ISalesService {
 	int saveOrUpdate(Sales sales);
 	int login(String phone,String password);
 	int delete(int id);
-	List<Sales> find(String phone);
+	Sales find(String phone);
 	List<Sales> findAll();
 }

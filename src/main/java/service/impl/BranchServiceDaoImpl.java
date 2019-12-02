@@ -29,13 +29,18 @@ public class BranchServiceDaoImpl implements IBranchService{
 	}
 
 	@Override
-	public List<Branch> find(int id) {
+	public Branch find(int id) {
 		return ibd.find(id);
 	}
 
 	@Override
 	public List<Branch> findAll() {
 		return ibd.findAll();
+	}
+
+	@Override
+	public List<Branch> find(String branchName) {
+		return ibd.find(branchName);
 	}
 
 }

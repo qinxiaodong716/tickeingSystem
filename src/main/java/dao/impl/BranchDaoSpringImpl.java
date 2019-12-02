@@ -35,8 +35,8 @@ public class BranchDaoSpringImpl implements IBranchDao{
 	}
 
 	@Override
-	public List<Branch> find(int id) {
-		return jdbcTemplate.query("select * from branch where branch_id=?", 
+	public Branch find(int id) {
+		return jdbcTemplate.queryForObject("select * from branch where branch_id=?", 
 				new Object[] {id},
 				new BeanPropertyRowMapper<Branch>(Branch.class));
 	}
@@ -44,6 +44,13 @@ public class BranchDaoSpringImpl implements IBranchDao{
 	@Override
 	public List<Branch> findAll() {
 		return jdbcTemplate.query("select * from branch where branch_id>0", 
+				new BeanPropertyRowMapper<Branch>(Branch.class));
+	}
+
+	@Override
+	public List<Branch> find(String branchName) {
+		return jdbcTemplate.query("select * from branch where branch_name=?", 
+				new Object[] {branchName},
 				new BeanPropertyRowMapper<Branch>(Branch.class));
 	}
 

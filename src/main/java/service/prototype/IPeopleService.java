@@ -9,7 +9,7 @@ import entity.People;
  */
 public interface IPeopleService {
 	int saveOrUpdate(People peop);
-	List<People> find(String phone);
+	People find(String phone);
 	List<People> findAll();
 	List<People> nameFind(String name);
 	List<People> login(String phone,String password);

@@ -14,7 +14,6 @@
 
 	<div class="qxd_ddxx">
 		<table style="width: 100%">
-			<c:forEach items="${orders}" var="order">
 				<tr>
 					<td>订单号:</td>
 					<td>
@@ -122,7 +121,6 @@
 						<input type="button"  value="改签">
 					</td>
 				</tr>
-			</c:forEach>
 
 		</table>
 	</div>

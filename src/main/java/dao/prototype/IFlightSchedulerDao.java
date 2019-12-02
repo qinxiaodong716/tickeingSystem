@@ -18,5 +18,5 @@ public interface IFlightSchedulerDao {
 		int saveOrUpdate(String flightNumber, Date startDate, Date endDate, String fromCity, String toCity,
 				Date departureTime, Date arrivalTime, String scheduler, double sailLength, double basicPrice);
 		List<FlightScheduler> listFlightSchedulers(String fromCity,String toCity,String date);
-		List<FlightScheduler> listFlightSchedulers(String flightNumber);
+		FlightScheduler flightSchedulers(String flightNumber);
 }

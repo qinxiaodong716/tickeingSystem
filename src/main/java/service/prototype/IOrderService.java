@@ -6,6 +6,7 @@ import entity.Order;
 
 public interface IOrderService {
 	long save(Order order);
-	List<Order> find(long id);
+	Order find(long id);
 	List<Order> find(String phone);
+	int updata(long orderId, String status);
 }

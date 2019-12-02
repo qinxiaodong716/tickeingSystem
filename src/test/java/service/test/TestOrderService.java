@@ -26,4 +26,10 @@ public class TestOrderService {
 		Order order = new Order(120, "wfk", "400600", 3, "19935813304", "qxd", "19935813304");
 		System.out.println(ios.save(order));
 	}
+	@Test
+	public void testupdata() {
+		long orderId = 141;
+		String status = "ytk";
+		System.out.println(ios.updata(orderId, status));
+	}
 }

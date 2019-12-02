@@ -11,6 +11,7 @@ import entity.Branch;
 public interface IBranchDao {
 	int saveOrUpdate(Branch branch);
 	int delete(int id);
-	List<Branch> find(int id);
+	Branch find(int id);
+	List<Branch> find(String branchName);
 	List<Branch> findAll();
 }

@@ -57,13 +57,25 @@
             <div class="qxd_log3"></div>
             <div class="qxd_con_nav_right">
                 <span><a href="index" class="qxd_con_nav_right_a">首页</a></span>
+                <%
+                	if("yes".equals(session.getAttribute("login"))){
+                %>
                 <span><a href="orderinquiry" class="qxd_con_nav_right_a" target="view">订单查看</a></span>
-                <span><a href="#">退票</a></span>
-                <span>积分商城</span>
-                <span>旅行信息</span>
+                <span><a href="peoplefindorder" target="view">退票</a></span>
+                <span><a href="#">改签</a></span>
+                <span><a href="setpeople" target="view">修改资料</a></span>
                 <span>旅行度假</span>
                 <span>旅行保险</span>
                 <span>各国签证</span>
+                <%}else{ %>
+                <span><a href="/hangkong/login" class="qxd_con_nav_right_a">订单查看</a></span>
+                <span><a href="/hangkong/login">退票</a></span>
+                <span><a href="/hangkong/login">改签</a></span>
+                <span><a href="/hangkong/login">修改资料</a></span>
+                <span>旅行度假</span>
+                <span>旅行保险</span>
+                <span>各国签证</span>
+                <%} %>
             </div>
         </div>
     </div>

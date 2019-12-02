@@ -26,7 +26,7 @@
                     <dd><a href="setpassword" target="view">安全设置</a></dd>
                 </dl>
             </li>
-            <li class="layui-nav-item"><a href="#" onclick="outlogin(${act.id})">退出登录</a></li>
+            <li class="layui-nav-item"><a href="#" onclick="outlogin()">退出登录</a></li>
         </ul>
     </div>
 
@@ -40,14 +40,14 @@
                         <dd><a href="seekflight" target="view">购票</a></dd>
                         <dd><a href="refund" target="view">退票</a></dd>
                         <dd><a href="changing" target="view">改签</a></dd>
-                        <dd><a href="orderinquiry" target="view">查询订单</a></dd>
+                        <dd><a href="queryOrder" target="view">查询订单</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item layui-nav-itemed">
                     <a class="" href="javascript:;">用户管理</a>
                     <dl class="layui-nav-child">
                         <dd><a href="inquirepeople" target="view">用户查询</a></dd>
-                        <dd><a href="setpeople" target="view">用户修改</a></dd>
+                        <dd><a href="amendpeople" target="view">用户修改</a></dd>
                     </dl>
                 </li>
             </ul>

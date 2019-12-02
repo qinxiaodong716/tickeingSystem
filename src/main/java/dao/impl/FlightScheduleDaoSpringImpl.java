@@ -21,8 +21,12 @@ public class FlightScheduleDaoSpringImpl implements IFlightSchedulerDao{
 	private JdbcTemplate jdbcTemplate;
 	@Override
 	public List<FlightScheduler> findAll() {
-		return jdbcTemplate.query("select * " + 
-				" FROM flight_scheduler fs ",
+		return jdbcTemplate.query("select fs.*,a1.airport_name 'fromAirportName',a2.airport_name 'toAirportName' " + 
+				"FROM flight_scheduler fs " +
+				"LEFT JOIN airport a1 "+
+				"ON a1.airport_code = fs.from_city " + 
+				"LEFT JOIN airport a2 " + 
+				"ON a2.airport_code = fs.to_city",
 				new Object[] {},
 				new BeanPropertyRowMapper<>(FlightScheduler.class));
 	}
@@ -56,8 +60,8 @@ public class FlightScheduleDaoSpringImpl implements IFlightSchedulerDao{
 	}
 
 	@Override
-	public List<FlightScheduler> listFlightSchedulers(String flightNumber) {
-		return jdbcTemplate.query("select fs.*,a1.airport_name 'from_airport_name',a2.airport_name 'to_airport_name' " + 
+	public FlightScheduler flightSchedulers(String flightNumber) {
+		return jdbcTemplate.queryForObject("select fs.*,a1.airport_name 'from_airport_name',a2.airport_name 'to_airport_name' " + 
 				" FROM flight_scheduler fs " + 
 				" LEFT JOIN airport a1" + 
 				" on a1.airport_code = fs.from_city " + 

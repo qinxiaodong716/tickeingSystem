@@ -22,13 +22,18 @@ public class OrderServiceDaoImpl implements IOrderService{
 	}
 
 	@Override
-	public List<Order> find(long id) {
+	public Order find(long id) {
 		return iod.find(id);
 	}
 
 	@Override
 	public List<Order> find(String phone) {
 		return iod.find(phone);
+	}
+
+	@Override
+	public int updata(long orderId, String status) {
+		return iod.updata(orderId, status);
 	}
 	
 	

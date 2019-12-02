@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<form action="gaiqian" method="post" target="tuipiao">
+<form action="gaiqian" method="post" target="gaiqian">
     <table class="qxd_carousel_control_right_button_con" style="width: 1280px">
         <tr>
             <td>订单号</td>
@@ -36,6 +36,6 @@
     </table>
 </form>
 <div class="main"></div>
-<iframe name="tuipiao" style="width: 95%;height: 85%;border: 1px solid red"></iframe>
+<iframe name="gaiqian" style="width: 95%;height: 85%;border: 1px solid #e6e6e6"></iframe>
 </body>
 </html>

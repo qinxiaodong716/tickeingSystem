@@ -34,7 +34,7 @@ public class AirportServiceDaoImpl implements IAirportService{
 	}
 
 	@Override
-	public List<Airport> find(String airportCode) {
+	public Airport find(String airportCode) {
 		return iad.find(airportCode);
 	}
 

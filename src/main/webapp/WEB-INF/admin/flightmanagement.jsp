@@ -28,8 +28,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="border-radius: 0;float: left">添加新航班信息</button>
-<form action="" method="post" style="float: right ;padding-right: 20px;">
-	<input type="text" placeholder="请输入航班号" style="height: 46px;">
+<form action="flightNumberfind" method="post" style="float: right ;padding-right: 20px;">
+	<input type="text" placeholder="请输入航班号" style="height: 46px;" name="flightNumber">
 	<input type="submit" value="搜索" style="height: 46px;width: 80px;">
 </form>
 <form action="saveflightscheduler">
@@ -52,27 +52,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </tr>
                     <tr>
                         <td>出发时间</td>
-                        <td><input type="text" name="startDate"></td>
+                        <td><input type="date" name="startDate"></td>
                     </tr>
                     <tr>
                         <td>结束时间</td>
-                        <td><input type="text" name="endDate"></td>
+                        <td><input type="date" name="endDate"></td>
                     </tr>
 					<tr>
                         <td>出发地</td>
-                        <td><input type="text" name="fromCity"></td>
+                        <td class="formcity"></td>
                     </tr>
 					<tr>
                         <td>目的地</td>
-                        <td><input type="text" name="toCity"></td>
+                        <td class="tocity"></td>
                     </tr>
 					<tr>
                         <td>离港时间</td>
-                        <td><input type="text" name="departureTime"></td>
+                        <td><input type="datetime-local" name="departureTime"></td>
                     </tr>
 					<tr>
                         <td>到港时间</td>
-                        <td><input type="text" name="arrivalTime"></td>
+                        <td><input type="datetime-local" name="arrivalTime"></td>
                     </tr>
 					<tr>
                         <td>班期</td>
@@ -84,7 +84,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </tr>
                     <tr>
                         <td>执行机型</td>
-                        <td><input type="text" name="airplane"></td>
+                        <td class="airplane"></td>
                     </tr>
                     <tr>
                         <td>航程</td>
@@ -107,10 +107,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <table class="table table-bordered">
         <tr>
             <th style="width: 50px;">序号</th>
-            <th>航班号
-                <!--<select class = "drop-down-options">
-                </select>-->
-            </th>
+            <th>航班号</th>
 			<th>开始日期</th>
 			<th>结束日期</th>
             <th>出发地</th>
@@ -123,34 +120,47 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <th>基准票价</th>
             <th>操作</th>
         </tr>
-        <c:forEach items="${findAll}" var="fa" varStatus="status">
-        	<tr>
-        		<td>${status.index+1}</td>
-        		<td>${fa.flightNumber}</td>
-        		<td>${fa.startDate}</td>
-        		<td>${fa.endDate}</td>
-        		<td>${fa.fromCity}</td>
-        		<td>${fa.toCity}</td>
-        		<td class="departureTime">${fa.departureTime}</td>
-        		<td>${fa.arrivalTime}</td>
-        		<td>${fa.airplane}</td>
-        		<td>${fa.scheduler}</td>
-        		<td>${fa.sailLength}</td>
-        		<td>${fa.basicPrice}</td>
-        		<td>
-                    <a href="deleteflightscheduler/${fa.flightNumber}">删除</a>
-                    <button>修改</button>
-                </td>
-        	</tr>
-        </c:forEach>
+            <c:forEach items="${findAll}" var="fa" varStatus="status">
+                <tr class="findAll">
+                    <td>${status.index+1}</td>
+                    <td>${fa.flightNumber}</td>
+                    <td>${fa.startDate}</td>
+                    <td>${fa.endDate}</td>
+                    <td>${fa.fromAirportName}</td>
+                    <td>${fa.toAirportName}</td>
+                    <td>${fa.departureTime.toString().substring(0,16)}</td>
+                    <td>${fa.arrivalTime.toString().substring(0,16)}</td>
+                    <td>${fa.airplane}</td>
+                    <td>${fa.scheduler}</td>
+                    <td>${fa.sailLength}</td>
+                    <td>${fa.basicPrice}</td>
+                    <td>
+                        <a href="deleteflightscheduler/${fa.flightNumber}">删除</a>
+                        <button>修改</button>
+                    </td>
+                </tr>
+            </c:forEach>
+        <tr class="find" style="width: 100%">
+            <td>1</td>
+            <td class="findflightNumber">${find.flightNumber}</td>
+            <td>${find.startDate}</td>
+            <td>${find.endDate}</td>
+            <td>${find.fromAirportName}</td>
+            <td>${find.toAirportName}</td>
+            <td>${find.departureTime.toString().substring(0,16)}</td>
+            <td>${find.arrivalTime.toString().substring(0,16)}</td>
+            <td>${find.airplane}</td>
+            <td>${find.scheduler}</td>
+            <td>${find.sailLength}</td>
+            <td>${find.basicPrice}</td>
+            <td>
+                <a href="deleteflightscheduler/${find.flightNumber}">删除</a>
+                <button>修改</button>
+            </td>
+        </tr>
     </table>
 </div>
 <script src="/hangkong/assets/js/jquery-1.7.2.js"></script>
-<script>
-    $(function () {
-        alert($(".departureTime").val())
-    })
-</script>
-
+<script src="/hangkong/assets/js/admin/flightmanagement.js"></script>
 </body>
 </html>

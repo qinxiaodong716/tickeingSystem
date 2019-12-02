@@ -25,11 +25,12 @@
                 <th>执行机型</th>
                 <th>航程</th>
             </tr>
-            <c:forEach items="${acts}" var="act"  varStatus="status">
                 <input type="hidden" name="flightNumber" value="${act.flightNumber}">
                 <input type="hidden" name="date" value="${act.startDate}">
                 <input type="hidden" name="Price" value="${act.basicPrice}">
                 <input type="hidden" name="startDate" value="${act.startDate}">
+                <input type="hidden" name="fromAirportName" value="${act.fromAirportName}">
+                <input type="hidden" name="toAirportName" value="${act.toAirportName}">
                 <tr>
                     <td>${act.flightNumber}</td>
                     <td>${act.startDate.toString().substring(0,10)}</td>
@@ -44,7 +45,6 @@
                         <td>${act.basicPrice}</td>--%>
                     <td>${act.sailLength}</td>
                 </tr>
-            </c:forEach>
         </table>
 
         <table>

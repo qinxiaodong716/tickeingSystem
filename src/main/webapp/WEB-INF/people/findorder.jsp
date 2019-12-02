@@ -12,10 +12,8 @@
 </head>
 <body>
 <form action="orderinquiry" method="post">
-
 	<div class="qxd_ddxx">
 		<table>
-			<c:forEach items="${orders}" var="order">
 				<tr>
 					<td>订单号:</td>
 					<td>
@@ -55,11 +53,11 @@
 				<tr>
 					<td>离港时间:</td>
 					<td>
-						<input type="text" disabled="disabled" value="${order.departureTime}">
+						<input type="text" disabled="disabled" value="${order.departureTime.toString().substring(0,16)}">
 					</td>
 					<td>到港时间:</td>
 					<td>
-						<input type="text" disabled="disabled" value="${order.arrivalTime}">
+						<input type="text" disabled="disabled" value="${order.arrivalTime.toString().substring(0,16)}">
 					</td>
 					<td>里程:</td>
 					<td>
@@ -120,7 +118,6 @@
 						<input type="text" disabled="disabled" value="${order.price}">
 					</td>
 				</tr>
-			</c:forEach>
 
 		</table>
 	</div>

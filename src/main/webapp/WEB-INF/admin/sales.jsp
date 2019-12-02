@@ -12,7 +12,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>售票员</title>
     <link rel="stylesheet" href="/hangkong/assets/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
@@ -27,9 +27,9 @@
 <div class="BOX">
 
 
-    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="border-radius: 0;float: left">添加营业员信息</button>
-    <form action="" method="post" style="float: right ;padding-right: 20px;">
-        <input type="text" placeholder="请输入营业员姓名" style="height: 46px;">
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="border-radius: 0;float: left" onclick="finAllSales()">添加营业员信息</button>
+    <form action="adminfindSales" method="post" style="float: right ;padding-right: 20px;">
+        <input type="text" placeholder="请输入营业员手机号" style="height: 46px;" name="phone">
         <input type="submit" value="搜索" style="height: 46px;width: 80px;">
     </form>
     <form action="insertsales" method="post">
@@ -47,8 +47,8 @@
                     <div class="modal-body">
                         <table>
                             <tr>
-                                <td>所在站点id</td>
-                                <td><input type="text" name="branchId"></td>
+                                <td>所在站点</td>
+                                <td class="branch"></td>
                             </tr>
                             <tr>
                                 <td>姓名</td>
@@ -92,18 +92,29 @@
             <tr>
                 <td>${status.index+1}</td>
                 <td>${fa.salesId}</td>
-                <td>${fa.branchId}</td>
+                <td>${fa.branchName}</td>
                 <td>${fa.salesName}</td>
                 <td>${fa.phone}</td>
                 <td>
                     <a href="deletesales/${fa.salesId}">删除</a>
-                    <button>修改</button>
+                    <button onclick="changesales(${fa.phone})">修改</button>
                 </td>
             </tr>
         </c:forEach>
+        <tr class="find">
+            <td>1</td>
+            <td class="salesId">${find.salesId}</td>
+            <td>${find.branchName}</td>
+            <td>${find.salesName}</td>
+            <td>${find.phone}</td>
+            <td>
+                <a href="deletesales/${fa.salesId}">删除</a>
+                <button onclick="changesales(${fa.phone})">修改</button>
+            </td>
+        </tr>
     </table>
 </div>
 <script src="/hangkong/assets/js/jquery-1.7.2.js"></script>
-
+<script src="/hangkong/assets/js/admin/sales.js"></script>
 </body>
 </html>

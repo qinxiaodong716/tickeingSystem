@@ -26,7 +26,6 @@
             <th>执行机型</th>
             <th>航程</th>
         </tr>
-        <c:forEach items="${acts}" var="act"  varStatus="status">
             <tr>
                 <td>${orderId}</td>
                 <td>${act.flightNumber}</td>
@@ -39,7 +38,6 @@
                 <td>${act.airplane}</td>
                 <td>${act.sailLength}</td>
             </tr>
-        </c:forEach>
     </table>
     <form action="paymentsuccess" method="post">
         <table>

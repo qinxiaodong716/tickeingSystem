@@ -28,7 +28,7 @@ public class PeopleServiceDaoImpl implements IPeopleService{
 	}
 
 	@Override
-	public List<People> find(String phone) {
+	public People find(String phone) {
 		return ipd.find(phone);
 	}
 

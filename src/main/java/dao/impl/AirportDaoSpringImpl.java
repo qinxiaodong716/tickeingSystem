@@ -40,8 +40,8 @@ public class AirportDaoSpringImpl implements IAirportDao{
 
 
 	@Override
-	public List<Airport> find(String airportCode) {
-		return jdbcTemplate.query("select * from airport where airport_code=?",
+	public Airport find(String airportCode) {
+		return jdbcTemplate.queryForObject("select * from airport where airport_code=?",
 				new Object[] {airportCode}, 
 				new BeanPropertyRowMapper<>(Airport.class));
 	}

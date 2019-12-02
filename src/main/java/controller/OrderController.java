@@ -11,7 +11,9 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import entity.FlightScheduler;
@@ -36,8 +38,14 @@ public class OrderController {
 	//使用手机号查询订单信息
 	@RequestMapping("/orderinquiry")
 	public ModelAndView orderinquiry (HttpServletRequest request,HttpServletResponse response,HttpSession session) {
-		String phone = session.getAttribute("phone").toString();
-		ModelAndView mv = new ModelAndView("people/findorder");
+		ModelAndView mv = null;
+		String phone = null;
+		try {
+			phone = session.getAttribute("phone").toString();
+			mv = new ModelAndView("/people/orders");
+		}catch (Exception e) {
+			mv = new ModelAndView("/login");
+		}
 		List<Order> orders = ios.find(phone);
 		mv.addObject("orders",orders);
 		return mv;
@@ -46,27 +54,36 @@ public class OrderController {
 	@RequestMapping("/orderIdinquiry")
 	public ModelAndView orderIdinquiry (HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		long id = Long.parseLong(request.getParameter("orderId"));
-		ModelAndView mv = new ModelAndView("people/findorder");
-		List<Order> orders = ios.find(id);
-		mv.addObject("orders",orders);
+		ModelAndView mv = new ModelAndView("/people/findorder");
+		Order order = ios.find(id);
+		mv.addObject("order",order);
 		return mv;
 	}
 	//使用订单号查询订单信息并跳转退票页
 	@RequestMapping("/tuipiao")
 	public ModelAndView tuipiao (HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		long id = Long.parseLong(request.getParameter("orderId"));
-		ModelAndView mv = new ModelAndView("sales/tuipiao");
-		List<Order> orders = ios.find(id);
-		mv.addObject("orders",orders);
+		ModelAndView mv = new ModelAndView("/sales/tuipiao");
+		Order order = ios.find(id);
+		mv.addObject("order",order);
 		return mv;
 	}
 	//改签
 	@RequestMapping("/gaiqian")
 	public ModelAndView changing (HttpServletRequest request,HttpServletResponse response,HttpSession session) {
-		String phone = session.getAttribute("phone").toString();
-		ModelAndView mv = new ModelAndView("sales/gaiqian");
-		List<Order> orders = ios.find(phone);
-		mv.addObject("orders",orders);
+		long orderId = Integer.parseInt(request.getParameter("orderId"));
+		ModelAndView mv = new ModelAndView("/sales/gaiqian");
+		Order order = ios.find(orderId);
+		mv.addObject("order",order);
+		return mv;
+	}
+	//查询
+	@RequestMapping("/chaxun")
+	public ModelAndView chaxun (HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		long orderId = Integer.parseInt(request.getParameter("orderId"));
+		ModelAndView mv = new ModelAndView("/sales/chaxun");
+		Order order = ios.find(orderId);
+		mv.addObject("order",order);
 		return mv;
 	}
 	//创建订单
@@ -75,6 +92,8 @@ public class OrderController {
 		String flightNumber=request.getParameter("flightNumber");
 		String linkmanName=request.getParameter("linkmanname");
 		String linkmanPhone=request.getParameter("linkmanphone");
+		String fromAirportName=request.getParameter("fromAirportName");
+		String toAirportName=request.getParameter("toAirportName");
 		String prices=request.getParameter("Price");
 		Double price = Double.parseDouble(prices);  //价格
 		String status = "wfk";
@@ -85,19 +104,20 @@ public class OrderController {
 		String startDate = request.getParameter("startDate");
 		String passengerName=request.getParameter("passengername");
 		String certificationNumber=request.getParameter("certificationnumber");
-		System.out.println(flightNumber);
-		System.out.println(startDate);
 		int flightId = ifs.listFlight(flightNumber, startDate).get(0).getFlightId();
 		//跳转到支付页
-		ModelAndView mv = new ModelAndView("people/payment");
+		String describe = fromAirportName+"==>"+toAirportName;
+		ModelAndView mv = new ModelAndView("people/pay");
 		mv.addObject("orderId",orderId);
-		mv.addObject("passengerName",passengerName);
+		mv.addObject("price",price);
+		mv.addObject("describe",describe);
+		/*mv.addObject("passengerName",passengerName);
 		mv.addObject("certificationNumber",certificationNumber);
 		mv.addObject("linkmanName",linkmanName);
 		mv.addObject("linkmanPhone",linkmanPhone);
-		List<FlightScheduler> acts = ifss.listFlightSchedulers(flightNumber);
+		FlightScheduler act = ifss.flightSchedulers(flightNumber);
 		mv.addObject("flightId",flightId);
-		mv.addObject("acts",acts);
+		mv.addObject("act",act);*/
 		return mv;
 	}
 	//支付
@@ -114,10 +134,14 @@ public class OrderController {
 		itos.saveOrUpdate(ticketOrder);
 		//跳转到支付页
 		ModelAndView mv = new ModelAndView("people/findorder");
-		List<Order> orders = ios.find(orderId);
-		mv.addObject("orders",orders);
+		Order order = ios.find(orderId);
+		mv.addObject("order",order);
 		mv.addObject("linkmanPhone",linkmanPhone);
-		System.out.println(orders);
 		return mv;
+	}
+	@PostMapping("querentuipiao")
+	@ResponseBody
+	public String querentuipiao(long orderId){
+		return ios.updata(orderId,"ytk")+"";
 	}
 }

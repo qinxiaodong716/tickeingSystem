@@ -12,7 +12,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>站点页面</title>
     <link rel="stylesheet" href="/hangkong/assets/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
@@ -27,10 +27,10 @@
 <div class="BOX">
 
 <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="border-radius: 0;float: left">添加站点信息</button>
-<form action="" method="post" style="float: right ;padding-right: 20px;">
-	<input type="text" placeholder="请输入站点名称" style="height: 46px;">
-	<input type="submit" value="搜索" style="height: 46px;width: 80px;">
-</form>
+	<form action="adminfindBranch" method="post" style="float: right ;padding-right: 20px;">
+		<input type="text" placeholder="请输入站点id" style="height: 46px;" name="branchId">
+		<input type="submit" value="搜索" style="height: 46px;width: 80px;">
+	</form>
 <form action="savebranch" method="post">
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
@@ -90,7 +90,7 @@
 			<th>电话</th>
             <th>所在省份</th>
             <th>所在城市</th>
-            <th>地质</th>
+            <th>地址</th>
 			<th>操作</th>
         </tr>
         <c:forEach items="${findAll}" var="fa" varStatus="status">
@@ -108,10 +108,23 @@
 				</td>
         	</tr>
         </c:forEach>
+		<tr id="${find.branchId}" class="find">
+			<td>1</td>
+			<td class="branchId">${find.branchId}</td>
+			<td>${find.branchName}</td>
+			<td>${find.telephone}</td>
+			<td>${find.province}</td>
+			<td>${find.city}</td>
+			<td>${find.address}</td>
+			<td>
+				<a href="deletebranch/${fa.branchId}">删除</a>
+				<button>修改</button>
+			</td>
+		</tr>
     </table>
 </div>
 <script src="/hangkong/assets/js/jquery-1.7.2.js"></script>
-
+<script src="/hangkong/assets/js/admin/branch.js"></script>
 
 </body>
 </html>

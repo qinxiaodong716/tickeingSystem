@@ -19,8 +19,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<form action="" method="post">
-	<input type="text" placeholder="请输入手机号" style="height: 46px;">
+<form action="adminfindpeople" method="post">
+	<input type="text" placeholder="请输入手机号" style="height: 46px;" name="phone">
 	<input type="submit" value="搜索" style="height: 46px;width: 80px;">
 </form>
 <div class="BOX">
@@ -34,7 +34,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th>姓名</th>
 			<th>电话</th>
             <th>身份证号</th>
-			<th>操作</th>
         </tr>
         <c:forEach items="${findAll}" var="fa" varStatus="status">
         	<tr>
@@ -43,15 +42,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td>${fa.peopleName}</td>
         		<td>${fa.phone}</td>
         		<td>${fa.idCard}</td>
-				<td>
-					<button>删除</button>
-					<button>修改</button>
-				</td>
         	</tr>
         </c:forEach>
+		<tr class="find">
+			<td>1</td>
+			<td class="peopleId">${find.peopleId}</td>
+			<td>${find.peopleName}</td>
+			<td>${find.phone}</td>
+			<td>${find.idCard}</td>
+		</tr>
     </table>
 </div>
 <script src="/hangkong/assets/js/jquery-1.7.2.js"></script>
-
+<script src="/hangkong/assets/js/admin/people.js"></script>
 </body>
 </html>

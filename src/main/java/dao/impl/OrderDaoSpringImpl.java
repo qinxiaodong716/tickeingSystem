@@ -25,8 +25,8 @@ public class OrderDaoSpringImpl implements IOrderDao{
 	}
 
 	@Override
-	public List<Order> find(long id) {
-		return jdbcTemplate.query("select o.order_id ,o.price,o.status,s.sales_name," +   //3
+	public Order find(long id) {
+		return jdbcTemplate.queryForObject("select o.order_id ,o.price,o.status,s.sales_name," +   //3
 				" f.flight_id,f.flight_number,f.departure_date,o.linkman_phone," +        //3
 				" t.ticket_order_id,t.passenger_name,t.certification_number," +  //3
 				" t.order_date, t.level,t.passenger_type,t.branch_id," + //4
@@ -84,9 +84,9 @@ public class OrderDaoSpringImpl implements IOrderDao{
 
 	@Override
 	public int updata(long orderId, String status) {
-		jdbcTemplate.update("update orders set status = ? where order_id = ?",
+		return jdbcTemplate.update("update orders set status = ? where order_id = ?",
 				new Object[] {status,orderId+""});
-		return 0;
+		
 	}
 	
 	

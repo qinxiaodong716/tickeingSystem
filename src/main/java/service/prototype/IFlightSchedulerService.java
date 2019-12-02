@@ -23,7 +23,7 @@ public interface IFlightSchedulerService {
 
 	List<FlightScheduler> findAll();
 	List<FlightScheduler> listFlightSchedulers(String fromCity,String toCity,String date);
-	List<FlightScheduler> listFlightSchedulers(String flightNumber);
+	FlightScheduler flightSchedulers(String flightNumber);
 	int saveOrUpdate(FlightScheduler flightScheduler);
 	List<FlightScheduler> listFlightSchedulers();
 	

@@ -11,6 +11,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -72,7 +74,7 @@ public class LoginController {
 				}
 			}else {
 				try {
-					response.sendRedirect("index");
+					response.sendRedirect("login");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -90,7 +92,7 @@ public class LoginController {
 				}
 			}else {
 				try {
-					response.sendRedirect("index");
+					response.sendRedirect("login");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -108,7 +110,7 @@ public class LoginController {
 				}
 			}else {
 				try {
-					response.sendRedirect("index");
+					response.sendRedirect("login");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -116,21 +118,21 @@ public class LoginController {
 		}
 	}
 	//获取用户名
-	@RequestMapping("/uname")
+	@GetMapping(value = "/uname" , produces = {"application/text;charset=UTF-8"})
 	@ResponseBody
 	public String username(HttpSession session) {
 		if("yes".equals(session.getAttribute("login")+"")){
 			String phone = session.getAttribute("phone").toString();
 			int identity = Integer.parseInt(session.getAttribute("identity").toString());
 			if(identity==1) {
-				List<People> resu = ips.find(phone);
-				return resu.get(0).getPeopleName();
+				People resu = ips.find(phone);
+				return resu.getPeopleName();
 			}else if(identity==2) {
-				List<Sales> resu = iss.find(phone);
-				return resu.get(0).getSalesName();
+				Sales resu = iss.find(phone);
+				return resu.getSalesName();
 			}else {
-				List<People> resu = ips.find(phone);
-				return resu.get(0).getPeopleName();
+				People resu = ips.find(phone);
+				return resu.getPeopleName();
 			}
 		}
 		return "";
@@ -140,7 +142,6 @@ public class LoginController {
 	public void outlogin(HttpSession session,HttpServletResponse response) {
 		if("yes".equals(session.getAttribute("login"))){
 			session.removeAttribute("login");
-			session.removeAttribute("phone");
 			session.removeAttribute("phone");
 		}
 		try {

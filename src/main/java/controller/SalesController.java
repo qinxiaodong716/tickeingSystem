@@ -9,13 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
 
-import entity.Branch;
+import entity.People;
 import entity.Sales;
 import service.prototype.IPeopleService;
 import service.prototype.ISalesService;
@@ -64,12 +65,23 @@ public class SalesController {
 		return "/sales/changing";
 	}
 	//删除一条营业员信息
-		@GetMapping("/deletesales/{salesId}")
-		public ModelAndView deletebranch(@PathVariable("salesId") int salesId) {
-			iss.delete(salesId);
-			ModelAndView modelAndView = new ModelAndView("admin/sales");
-			List<Sales> findAll = iss.findAll();
-			modelAndView.addObject("findAll",findAll);
-			return modelAndView;
-		}
+	@GetMapping("/deletesales/{salesId}")
+	public ModelAndView deletesales(@PathVariable("salesId") int salesId) {
+		iss.delete(salesId);
+		ModelAndView modelAndView = new ModelAndView("admin/sales");
+		List<Sales> findAll = iss.findAll();
+		modelAndView.addObject("findAll",findAll);
+		return modelAndView;
+	}
+	@RequestMapping("queryOrder")
+	public String queryOrder() {		
+		return "sales/queryorder";	
+	}
+	@RequestMapping(value = "salesfindpeople", produces = {"application/text;charset=UTF-8"})
+	@ResponseBody
+	public String findpeople(String phone) {
+		People people = ips.find(phone);
+		return JSON.toJSONString(people);	
+	}
+	
 }

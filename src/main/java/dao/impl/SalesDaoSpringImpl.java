@@ -52,19 +52,14 @@ public class SalesDaoSpringImpl implements ISalesDao{
 				new Object[] {id});
 	}
 	@Override
-	public List<Sales> find(String phone) {
-		List<Sales> result=null;
-		result=jdbcTemplate.query("select sales_id,phone,sales_name from sales where phone=?", 
+	public Sales find(String phone) {
+		return jdbcTemplate.queryForObject("select sales_id,phone,sales_name,branch_name from sales s LEFT JOIN branch b on b.branch_id = s.branch_id where phone=?", 
 				new Object[] {phone}, 
-				new BeanPropertyRowMapper<>(Sales.class));
-		if(result.size()>0) {
-			return result;
-		}
-		return result;
+				new BeanPropertyRowMapper<Sales>(Sales.class));
 	}
 	@Override
 	public List<Sales> findAll() {
-		return jdbcTemplate.query("select * from sales where sales_id>0", 
+		return jdbcTemplate.query("select s.*,b.branch_name from sales s LEFT JOIN branch b on b.branch_id = s.branch_id where sales_id>0", 
 				new Object[] {}, 
 				new BeanPropertyRowMapper<>(Sales.class));
 	}

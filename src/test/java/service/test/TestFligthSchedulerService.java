@@ -25,7 +25,7 @@ public class TestFligthSchedulerService {
 	}
 	@Test
 	public void Testfind1() {
-		System.out.println(ifss.listFlightSchedulers("400600"));
+		System.out.println(ifss.flightSchedulers("400600"));
 	}
 	@Test
 	public void TestfindAll() {

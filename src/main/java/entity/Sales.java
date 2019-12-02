@@ -12,6 +12,7 @@ public class Sales implements Serializable{
 	private static final long serialVersionUID = 2427165183041369292L;
 	private int salesId;
 	private int branchId;
+	private String branchName;
 	private String salesName;
 	private String password;
 	private String phone;
@@ -30,6 +31,24 @@ public class Sales implements Serializable{
 		super();
 		this.salesId = salesId;
 		this.branchId = branchId;
+		this.salesName = salesName;
+		this.password = password;
+		this.phone = phone;
+	}
+	
+	public String getBranchName() {
+		return branchName;
+	}
+
+	public void setBranchName(String branchName) {
+		this.branchName = branchName;
+	}
+
+	public Sales(int salesId, int branchId, String branchName, String salesName, String password, String phone) {
+		super();
+		this.salesId = salesId;
+		this.branchId = branchId;
+		this.branchName = branchName;
 		this.salesName = salesName;
 		this.password = password;
 		this.phone = phone;

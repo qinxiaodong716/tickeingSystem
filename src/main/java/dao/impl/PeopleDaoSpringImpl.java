@@ -69,15 +69,10 @@ public class PeopleDaoSpringImpl implements IPeopleDao{
 	 * 按手机号查询用户
 	 */
 	@Override
-	public List<People> find(String phone) {
-		List<People> result=null;
-		result=jdbcTemplate.query("select people_id,phone,people_name,id_card from people where phone=?", 
+	public People find(String phone) {
+		return jdbcTemplate.queryForObject("select people_id,phone,people_name,id_card from people where phone=?", 
 				new Object[] {phone}, 
-				new BeanPropertyRowMapper<>(People.class));
-		if(result.size()>0) {
-			return result;
-		}
-		return result;
+				new BeanPropertyRowMapper<People>(People.class));
 	}
 	/*
 	 * 修改密码

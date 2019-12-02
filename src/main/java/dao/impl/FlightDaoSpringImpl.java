@@ -81,4 +81,10 @@ public class FlightDaoSpringImpl implements IFlightDao{
 		return i;
 	}
 
+	@Override
+	public int delete(String flightNumber) {
+		return jdbcTemplate.update("delete from flight where flight_number=?", 
+				new Object[] {flightNumber});
+	}
+
 }

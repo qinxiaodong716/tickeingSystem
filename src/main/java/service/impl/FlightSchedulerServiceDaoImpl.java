@@ -49,6 +49,7 @@ public class FlightSchedulerServiceDaoImpl implements IFlightSchedulerService{
 
 	@Override
 	public int delete(String flightNumber) {
+		ifd.delete(flightNumber);
 		return flightSchedulerDao.delete(flightNumber);
 	}
 
@@ -75,8 +76,8 @@ public class FlightSchedulerServiceDaoImpl implements IFlightSchedulerService{
 	}
 
 	@Override
-	public List<FlightScheduler> listFlightSchedulers(String flightNumber) {
-		return flightSchedulerDao.listFlightSchedulers(flightNumber);
+	public FlightScheduler flightSchedulers(String flightNumber) {
+		return flightSchedulerDao.flightSchedulers(flightNumber);
 	}
 	@Override
 	public List<FlightScheduler> listFlightSchedulers(String fromCity, String toCity, String date) {

@@ -65,7 +65,13 @@
         <td>${act.basicPrice}</td>--%>
         <td>${act.sailLength}</td>
         <td>
-            <a href="buyticket/${act.flightNumber}">购买</a>
+        	<%
+           		if("yes".equals(session.getAttribute("login"))){
+            %>
+           	 	<a href="buyticket/${act.flightNumber}">购买</a>
+            <%}else{ %>
+            	<a href="/hangkong/login" target="_parent">购买</a>
+            <%} %>
         </td>
         </tr>
     </c:forEach>

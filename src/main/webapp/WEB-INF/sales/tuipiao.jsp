@@ -14,7 +14,6 @@
 
 	<div class="qxd_ddxx">
 		<table style="width: 100%">
-			<c:forEach items="${orders}" var="order">
 				<tr>
 					<td>订单号:</td>
 					<td>
@@ -66,25 +65,62 @@
 					</td>
 					<td>舱位等级:</td>
 					<td>
-						<input type="text" disabled="disabled" value="${order.level}" class="cwdj">
+						<c:if test="${order.level=='j'}">
+							<input type="text" disabled="disabled" value="经济舱">
+						</c:if>
+						<c:if test="${order.status=='g'}">
+							<input type="text" disabled="disabled" value="公务舱">
+						</c:if>
+						<c:if test="${order.status=='t'}">
+							<input type="text" disabled="disabled" value="头等舱">
+						</c:if>
 					</td>
 				</tr>
 				<tr>
 					<td>乘客类型:</td>
 					<td>
-						<input type="text" disabled="disabled" value="${order.passengerType}">
+						<c:if test="${order.passengerType=='c'}">
+							<input type="text" disabled="disabled" value="成人">
+						</c:if>
+						<c:if test="${order.passengerType=='x'}">
+							<input type="text" disabled="disabled" value="小孩">
+						</c:if>
 					</td>
 					<td>订单状态:</td>
 					<td>
-						<input type="text" disabled="disabled" value="${order.status}" class="ddzt">
+						<c:if test="${order.status=='yfk'}">
+							<input type="text" disabled="disabled" value="已付款" name="start">
+						</c:if>
+						<c:if test="${order.status=='ytk'}">
+							<input type="text" disabled="disabled" value="已退款" name="start">
+						</c:if>
+						<c:if test="${order.status=='wfk'}">
+							<input type="text" disabled="disabled" value="未付款" name="start">
+						</c:if>
 					</td>
 					<td>是否出票:</td>
 					<td>
-						<input type="text" disabled="disabled" value="${order.orderId}">
+						<c:choose>
+							<c:when test="${order.status=='ycp'}">
+								<input type="text" disabled="disabled" value="已出票" name="start">
+							</c:when>
+
+							<c:otherwise>
+								<input type="text" disabled="disabled" value="---" name="start">
+							</c:otherwise>
+						</c:choose>
 					</td>
 					<td>是否退票:</td>
 					<td>
-						<input type="text" disabled="disabled" value="${order.orderId}" class="tp">
+						<c:choose>
+							<c:when test="${order.status=='ytk'}">
+								<input type="text" disabled="disabled" value="已退款" name="start">
+							</c:when>
+
+							<c:otherwise>
+								<input type="text" disabled="disabled" value="---" name="start">
+							</c:otherwise>
+						</c:choose>
 					</td>
 				</tr>
 				<tr>
@@ -131,9 +167,8 @@
 					<td></td>
 					<td></td>
 					<td></td>
-					<td><input type="button"  value="确认退票"></td>
+					<td><input type="button"  value="确认退票" onclick="tuipiao(${order.orderId})"></td>
 				</tr>
-			</c:forEach>
 
 		</table>
 	</div>
@@ -171,6 +206,22 @@
 		}
 		
 	})
+	function tuipiao(e) {
+		var orderId = e;
+		$.ajax({
+			type:"POST",
+			url:"querentuipiao",
+			data:{
+				"orderId":orderId
+			},
+			success:function(data){
+				if(data>0){
+					$(".ddzt").html("ytk")
+					alert("退款成功")
+				}
+			}
+		})
+	}
 </script>
 </body>
 </html>

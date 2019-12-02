@@ -8,7 +8,7 @@ function nameinquire(){
         }
     })
 }
-function phoneinquire(){
+function phoneinquery(){
     var phone = $(".peoplephone").val();
     $.ajax({
         url:"inquirephone",
@@ -20,6 +20,7 @@ function phoneinquire(){
 }
 $(function(){
     $.ajax({
+        type:"get",
         url:"uname",
         success:function(data){
             $(".username").html(data);
@@ -32,6 +33,6 @@ layui.use('element', function(){
 function outlogin(){
     var isDelete = confirm("您确定要退出吗？");
     if(isDelete){
-        window.location.href="/hangkong/index";
+        window.location.href="/hangkong/outlogin";
     }
 }

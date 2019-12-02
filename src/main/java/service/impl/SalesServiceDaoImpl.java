@@ -32,7 +32,7 @@ public class SalesServiceDaoImpl implements ISalesService{
 	}
 
 	@Override
-	public List<Sales> find(String phone) {
+	public Sales find(String phone) {
 		return isd.find(phone);
 	}
 

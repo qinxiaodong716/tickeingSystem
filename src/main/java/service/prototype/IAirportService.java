@@ -9,6 +9,6 @@ public interface IAirportService {
 	int save(Airport airport);
 	int update(Airport airport);
 	int delete(String airportCode);
-	List<Airport> find(String airportCode);
+	Airport find(String airportCode);
 	List<Airport> findAll();
 }

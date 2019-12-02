@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import entity.People;
 import service.prototype.IPeopleService;
@@ -37,7 +39,7 @@ public class RegisterController {
 		i = ips.saveOrUpdate(peop);
 		if(i>0) {
 			try {
-				response.sendRedirect("index");
+				response.sendRedirect("/hangkong/login");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -48,5 +50,22 @@ public class RegisterController {
 				e.printStackTrace();
 			}
 		}
+	}
+	//--注册验证手机号是否被注册
+	@PostMapping("/phoneverify")
+	@ResponseBody
+	public String phonecerify(String phone) {
+		People people = null;
+		try {
+			people = ips.find(phone);
+			if(people.getPeopleId()>0) {
+				return "false";
+			}else {
+				return "true";
+			}
+		}catch (Exception e) {
+			return "true";
+		}
+		
 	}
 }

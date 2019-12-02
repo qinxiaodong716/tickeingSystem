@@ -25,6 +25,8 @@
             <li class="layui-nav-item"><a href="adminsales" target="view">营业员</a></li>
             <li class="layui-nav-item"><a href="adminbranch" target="view">营业点</a></li>
             <li class="layui-nav-item"><a href="adminpeople" target="view">用户</a></li>
+            <li class="layui-nav-item"><a href="airportmodel" target="view">飞机管理</a></li>
+            <li class="layui-nav-item"><a href="airport" target="view">机场管理</a></li>
             <li class="layui-nav-item">
                 <a href="javascript:;">其它系统</a>
                 <dl class="layui-nav-child">
@@ -51,7 +53,7 @@
                     <dd><a href="">安全设置</a></dd>
                 </dl>
             </li>
-            <li class="layui-nav-item"><a href="Alogin">退出</a></li>
+            <li class="layui-nav-item"><a href="#" onclick="outlogin()">退出</a></li>
         </ul>
     </div>
 
@@ -108,6 +110,12 @@
         var element = layui.element;
 
     });
+    function outlogin(){
+        var isDelete = confirm("您确定要退出吗？");
+        if(isDelete){
+            window.location.href="/hangkong/outlogin";
+        }
+    }
 </script>
 </body>
 </html>
