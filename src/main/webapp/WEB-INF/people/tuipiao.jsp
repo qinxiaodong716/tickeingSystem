@@ -94,7 +94,7 @@
 						<input type="text" disabled="disabled" value="已付款" name="start">
 						</c:if>
 						<c:if test="${order.status=='ytk'}">
-							<input type="text" disabled="disabled" value="已退款" name="start">
+							<input type="text" disabled="disabled" value="已退款" name="start" class="ddzt">
 						</c:if>
 						<c:if test="${order.status=='wfk'}">
 							<input type="text" disabled="disabled" value="未付款" name="start">
@@ -223,7 +223,7 @@
 			},
 			success:function(data){
 				if(data>0){
-					$(".ddzt").html("ytk")
+					$(".ddzt").html("已退款")
 					alert("退款成功")
 				}
 			}

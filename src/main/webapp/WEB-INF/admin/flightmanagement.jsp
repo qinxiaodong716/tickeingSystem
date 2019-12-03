@@ -162,5 +162,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 <script src="/hangkong/assets/js/jquery-1.7.2.js"></script>
 <script src="/hangkong/assets/js/admin/flightmanagement.js"></script>
+<script>
+$(function(){
+    var date_now = new Date();
+    $("input[type = 'data']").attr("min",date_now);
+    $("input[type = 'datetime-local']").attr("min",date_now);
+})
+</script>
 </body>
 </html>

@@ -155,7 +155,7 @@
 						<input type="text" disabled="disabled" value="${order.price}" class="jpjg">
 					</td>
 					<td>
-						
+
 					</td>
 				</tr>
 				<tr>
@@ -167,44 +167,54 @@
 					<td></td>
 					<td></td>
 					<td></td>
-					<td><input type="button"  value="确认退票" onclick="tuipiao(${order.orderId})"></td>
+					<td class="tk">
+						<input type="button"  value="确认退票" onclick="tuipiao(${order.orderId})" class="qrtp">
+						<a href="#" class="tp" style="text-decoration: none">确认退票</a>
+					</td>
 				</tr>
 
 		</table>
 	</div>
-	
+
 </form>
 
 <script src="/hangkong/assets/js/jquery-1.7.2.js"></script>
 <script>
 	$(function(){
-		var lgsjdate = new Date($(".lgsj").val())
-		var start = $(".ddzt").val()
-		var xzsjdate = new Date()
-		var sjc =(lgsjdate-xzsjdate)
-		var j = $(".cwdj").val()
-		h = sjc/1000/60/60
-		if("yfk"==start){
-			if(h>24){
-				$(".ktje").html($(".jpjg").val())
-			}else if(h>2){
-				$(".ktje").html($(".jpjg").val()*0.9)
-			}else if(h>0){
-				$(".ktje").html($(".jpjg").val()*0.8)
+		$("table").each(function () {
+			var lgsjdate = new Date($(this).find("input[name ='lgsj']").val())
+			var start = $(this).find("input[name ='start']").val()
+			var xzsjdate = new Date()
+			var sjc =(lgsjdate-xzsjdate)
+			var piaojia = $(this).find(".jpjg").val()
+			h = sjc/1000/60/60
+
+			if("已付款"==start){
+				if(h>24){
+					tkje = piaojia
+					$(this).find(".tp").css({"display":"none"})
+				}else if(h>2){
+					tkje = piaojia*0.9
+					$(this).find(".tp").css({"display":"none"})
+				}else if(h>0){
+					tkje = piaojia*0.8
+					$(this).find(".tp").css({"display":"none"})
+				}else{
+					tkje = 0
+					$(this).find(".tp").html("无法退票")
+					$(this).find(".tp").css({"display":"block"})
+					$(this).find(".qrtp").css({"display":"none"})
+				}
+				$(this).find(".tkje").html(tkje)
+			}else if("已退款"==start){
+				$(".ktje").html(0)
+				$(this).find(".tp").html("已退票")
+				$(this).find(".qrtp").css({"display":"none"})
 			}else{
 				$(".ktje").html(0)
 			}
-		}else if("ytp"==start){
-			$(".ktje").html(0)
-			$(".tp").html("已退票")
-		}else{
-			$(".ktje").html(0)
-		}
-		
-		if("j"==j){
-			$(".cwdj").html("经济舱")
-		}
-		
+		})
+
 	})
 	function tuipiao(e) {
 		var orderId = e;

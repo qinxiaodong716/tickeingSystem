@@ -50,7 +50,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="text" size="30" name="startDate" style="height:40px" >
+                            <input placeholder="请选择出发日期" size =30 style="width:225px;height:40px;" type="text" id="date" name="startDate" class="Wdate" onFocus="WdatePicker({skin:'whyGreen',minDate:'%y-%M-%d'})" autocomplete="off" >
                             </td>
                         </tr>
                         <tr>
@@ -63,5 +63,14 @@
             </div>
         </div>
     </div>
+    <script src="/hangkong/assets/js/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="/hangkong/assets/js/qxd.index.js"></script>
+<script type="text/javascript" src="/hangkong/assets/js/WdatePicker.js"></script>
+<script>
+	$(function(){
+		newDate = new Date();
+		$("#startDate").attr("min",newDate)
+	})
+</script>
 </body>
 </html>

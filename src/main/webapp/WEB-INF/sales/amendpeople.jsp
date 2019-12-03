@@ -51,7 +51,7 @@
         </td>
         <td></td>
         <td>
-            <input type="submit" style="width: 80px;height: 40px;" class="sousuo">搜索</input>
+            <input type="submit" style="width: 80px;height: 40px;" class="sousuo"></input>
         </td>
     </tr>
     </form>

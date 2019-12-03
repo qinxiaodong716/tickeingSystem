@@ -45,14 +45,20 @@ public class PeopleController {
 			return "sales/amendpeople";
 		}
 		//修改用户个人信息页面
-				@RequestMapping("/salsesetpeople")
-				public ModelAndView salsesetpeople(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
-					String phone = request.getParameter("phone");
-					ModelAndView mv = new ModelAndView("people/setpeople");
-					People people = ips.find(phone);
-					mv.addObject("people",people);
-					return mv;
-				}
+		@RequestMapping("/salsesetpeople")
+		public ModelAndView salsesetpeople(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+			String phone = request.getParameter("phone");
+			ModelAndView mv = null;
+			People people = null;
+			try {
+				people = ips.find(phone);
+				mv = new ModelAndView("people/setpeople");
+			}catch (Exception e) {
+				mv = new ModelAndView("sales/amendpeople");
+			}
+			mv.addObject("people",people);
+			return mv;
+		}
 	//修改个人信息页面
 	@RequestMapping("/setdata")
 	public ModelAndView setDate(HttpServletRequest request,HttpServletResponse response,HttpSession session) {

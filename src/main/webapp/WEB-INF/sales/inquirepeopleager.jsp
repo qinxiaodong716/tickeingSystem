@@ -66,19 +66,23 @@
         var phone = $("input[name='peoplephone']").val();
         $.post(
             "salesfindpeople",{"phone":phone},function (data) {
-                var people = JSON.parse(data)
-                var table = "<table class='people'><tr>" +
-                    "            <th>序号</th>\n" +
-                    "            <th>姓名</th>\n" +
-                    "            <th>手机号</th>\n" +
-                    "            <th>身份证号</th>\n" +
-                    "        </tr><tr>"
-                table+="<td>"+1+"</td>"
-                table+="<td>"+people.peopleName+"</td>"
-                table+="<td>"+people.phone+"</td>"
-                table+="<td>"+people.idCard+"</td>"
-                table+="</tr></table>"
-                $(".people").html(table)
+                if(data="wzd"){
+                    alert("未找到")
+                }else{
+                    var people = JSON.parse(data)
+                    var table = "<table class='people'><tr>" +
+                        "            <th>序号</th>\n" +
+                        "            <th>姓名</th>\n" +
+                        "            <th>手机号</th>\n" +
+                        "            <th>身份证号</th>\n" +
+                        "        </tr><tr>"
+                    table+="<td>"+1+"</td>"
+                    table+="<td>"+people.peopleName+"</td>"
+                    table+="<td>"+people.phone+"</td>"
+                    table+="<td>"+people.idCard+"</td>"
+                    table+="</tr></table>"
+                    $(".people").html(table)
+                }
             }
         )
     }

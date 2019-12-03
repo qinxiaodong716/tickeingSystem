@@ -21,6 +21,12 @@
             border-radius: 10px;
             color: blue;
         }
+        td{
+        	height:30px;
+        }
+        input{
+        	margin:auto;
+        }
     </style>
 </head>
 <body>
@@ -76,21 +82,24 @@
 							%>
 						    <tr>
 						        <td>旧密码</td>
+						    </tr>
+						    <tr>
 						        <td>
 						            <input type="password" name="oldpassword">
 						        </td>
 						    </tr>
 						    <tr>
-						    	<td></td>
+						        <td>新密码</td>
 						    </tr>
 						    <tr>
-						        <td>新密码</td>
 						        <td>
 						            <input type="password" name="password">
 						        </td>
 						    </tr>
 						    <tr>
 						        <td>确认密码</td>
+						    </tr>
+						    <tr>
 						        <td>
 						            <input type="password" name="password2">
 						        </td>
@@ -100,6 +109,8 @@
 							%>
 							<tr>
 								<td>新密码</td>
+							</tr>
+							<tr>
 								<td>
 									<input type="password" name="password">
 								</td>

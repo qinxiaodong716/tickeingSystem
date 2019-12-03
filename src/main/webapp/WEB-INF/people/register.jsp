@@ -50,7 +50,7 @@
             position: relative;
             padding: 20px 18px 0;
             left: 900px;
-            top: -400px;
+            top: -600px;
             height: 302px;
             width: 364px;
             background-color: white;
@@ -133,7 +133,7 @@
         </div>
     </div>
 <div class="zh-zhong">
-    <img src="assets/image/plane.jpg" alt="" style="height: 530px;">
+    <img src="assets/image/plane.jpg" alt="" style="height: 675px;">
     <div class="zh-zhong-right">
         <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
             <ul class="layui-tab-title">
@@ -180,7 +180,7 @@
                             <tr></tr>
                             <tr>
                                 <td colspan="2">
-                                     <div class="button"><input type="submit" class="button" value="注册"></div>
+                                     <div class="button"><input type="submit" class="button" value="        注册"></div>
                                		<br>
                                		<span>如果有账号，请点击这里<a href="/hangkong/login">登录</a></span>
                                 </td>

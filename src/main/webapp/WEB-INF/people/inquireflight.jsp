@@ -28,7 +28,7 @@
                 出发时间
             </td>
             <td>
-                <input type="text" size="30" name="startDate" style="height:40px" >
+            	<input placeholder="请选择出发日期" size =30 style="width:225px;height:40px;" type="text" id="date" name="startDate" class="Wdate" onFocus="WdatePicker({skin:'whyGreen',minDate:'%y-%M-%d'})" autocomplete="off" >
             </td>
             <td>
                 <input type="submit" value="搜素" style="height:40px;width: 60px">
@@ -78,7 +78,7 @@
 
 </table>
 </div>
-
+<script type="text/javascript" src="/hangkong/assets/js/WdatePicker.js"></script>
 </body>
 </html>
 

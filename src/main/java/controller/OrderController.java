@@ -53,37 +53,69 @@ public class OrderController {
 	//使用订单号查询订单信息
 	@RequestMapping("/orderIdinquiry")
 	public ModelAndView orderIdinquiry (HttpServletRequest request,HttpServletResponse response,HttpSession session) {
-		long id = Long.parseLong(request.getParameter("orderId"));
-		ModelAndView mv = new ModelAndView("/people/findorder");
-		Order order = ios.find(id);
-		mv.addObject("order",order);
+		long id ;
+		ModelAndView mv;
+		Order order;
+		try {
+			id = Long.parseLong(request.getParameter("orderId"));
+			order = ios.find(id);
+			mv = new ModelAndView("/people/findorder");
+			mv.addObject("order",order);
+		}catch (Exception e) {
+			mv=null;
+		}
 		return mv;
 	}
 	//使用订单号查询订单信息并跳转退票页
 	@RequestMapping("/tuipiao")
 	public ModelAndView tuipiao (HttpServletRequest request,HttpServletResponse response,HttpSession session) {
-		long id = Long.parseLong(request.getParameter("orderId"));
-		ModelAndView mv = new ModelAndView("/sales/tuipiao");
-		Order order = ios.find(id);
-		mv.addObject("order",order);
+
+		long id;
+		ModelAndView mv;
+		Order order;
+		try {
+			System.out.println("123");
+			id = Long.parseLong(request.getParameter("orderId"));
+			System.out.println(id);
+			order = ios.find(id);
+			System.out.println(order);
+			mv = new ModelAndView("/sales/tuipiao");
+			mv.addObject("order",order);
+		}catch (Exception e) {
+			mv=null;
+		}
 		return mv;
 	}
 	//改签
 	@RequestMapping("/gaiqian")
 	public ModelAndView changing (HttpServletRequest request,HttpServletResponse response,HttpSession session) {
-		long orderId = Integer.parseInt(request.getParameter("orderId"));
-		ModelAndView mv = new ModelAndView("/sales/gaiqian");
-		Order order = ios.find(orderId);
-		mv.addObject("order",order);
+		long orderId;
+		ModelAndView mv;
+		Order order;
+		try {
+			orderId = Integer.parseInt(request.getParameter("orderId"));
+			order = ios.find(orderId);
+			mv = new ModelAndView("/sales/gaiqian");
+			mv.addObject("order",order);
+		}catch (Exception e) {
+			mv=null;
+		}
 		return mv;
 	}
 	//查询
 	@RequestMapping("/chaxun")
 	public ModelAndView chaxun (HttpServletRequest request,HttpServletResponse response,HttpSession session) {
-		long orderId = Integer.parseInt(request.getParameter("orderId"));
-		ModelAndView mv = new ModelAndView("/sales/chaxun");
-		Order order = ios.find(orderId);
-		mv.addObject("order",order);
+		long orderId;
+		ModelAndView mv;
+		Order order;
+		try {
+			orderId = Integer.parseInt(request.getParameter("orderId"));
+			order = ios.find(orderId);
+			mv = new ModelAndView("/sales/chaxun");
+			mv.addObject("order",order);
+		}catch (Exception e) {
+			mv=null;
+		}
 		return mv;
 	}
 	//创建订单

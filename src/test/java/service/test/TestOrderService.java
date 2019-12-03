@@ -19,7 +19,11 @@ public class TestOrderService {
 	
 	@Test
 	public void testFind() {
-		System.out.println(ios.find(112));
+		System.out.println(ios.find(139));
+	}
+	@Test
+	public void testFind1() {
+		System.out.println(ios.find("19935813304"));
 	}
 	@Test
 	public void testsave() {

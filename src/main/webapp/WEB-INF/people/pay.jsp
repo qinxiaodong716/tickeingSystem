@@ -205,7 +205,7 @@ ${fId}
 			<h2 id="tab4" name="tab">退 款 查 询</h2>
 			<h2 id="tab5" name="tab">交 易 关 闭</h2> -->
 		</div>
-		<form name=alipayment action='/airsys/user/alipay/payTicket/${fId}/<%=session.getAttribute("uId") %>' method=post
+		<form name=alipayment action='atppj' method=post
 			target="_blank">
 			<div id="body1" class="show" name="divcontent">
 				<dl class="content">
@@ -221,12 +221,12 @@ ${fId}
 					<hr class="one_line">
 					<dt>付款金额 ：</dt>
 					<dd>
-						<input id="WIDtotal_amount" name="WIDtotal_amount" />
+						<input id="WIDtotal_amount" name="WIDtotal_amount" value="${price}"/>
 					</dd>
 					<hr class="one_line">
 					<dt>商品描述：</dt>
 					<dd>
-						<input id="WIDbody" value='airsys welcome your comming' name="WIDbody" />
+						<input id="WIDbody" value="${describe}" name="WIDbody" />
 					</dd>
 					<hr class="one_line">
 					<dt></dt>
@@ -398,7 +398,6 @@ ${fId}
 		document.getElementById("WIDout_trade_no").value =  sNow;
 		document.getElementById("WIDsubject").value = "机票";
 		document.getElementById("WIDtotal_amount").value = ${price};
-		document.getElementById("WIDbody").value = ${describe};
 	}
 	GetDateNow();
 </script>

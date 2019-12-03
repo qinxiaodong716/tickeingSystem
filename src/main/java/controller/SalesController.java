@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -40,14 +39,26 @@ public class SalesController {
 	@ResponseBody
 	public String salesphone(HttpServletRequest request,HttpServletResponse response) {
 		String phone = request.getParameter("phone");
-		return JSON.toJSONString(ips.find(phone).toString());
+		String str = "";
+		try {
+			str = JSON.toJSONString(ips.find(phone).toString());
+		}catch (Exception e) {
+			str = "wzd";
+		}
+		return str;
 	}
 	//用户查询按用户名
 	@RequestMapping("inquirename")
 	@ResponseBody
 	public String salesname(HttpServletRequest request,HttpServletResponse response) {
 		String name = request.getParameter("name");
-		return ips.nameFind(name).toString();
+		String str = "";
+		try {
+			str = ips.nameFind(name).toString();
+		}catch (Exception e) {
+			str = "wzd";
+		}
+		return str;
 	}
 	//航班查询
 	@RequestMapping("seekflight")
@@ -68,20 +79,27 @@ public class SalesController {
 	@GetMapping("/deletesales/{salesId}")
 	public ModelAndView deletesales(@PathVariable("salesId") int salesId) {
 		iss.delete(salesId);
-		ModelAndView modelAndView = new ModelAndView("admin/sales");
+		ModelAndView modelAndView = new ModelAndView("/admin/sales");
 		List<Sales> findAll = iss.findAll();
 		modelAndView.addObject("findAll",findAll);
 		return modelAndView;
 	}
 	@RequestMapping("queryOrder")
 	public String queryOrder() {		
-		return "sales/queryorder";	
+		return "/sales/queryorder";	
 	}
 	@RequestMapping(value = "salesfindpeople", produces = {"application/text;charset=UTF-8"})
 	@ResponseBody
 	public String findpeople(String phone) {
-		People people = ips.find(phone);
-		return JSON.toJSONString(people);	
+		People people;
+		String json="";
+		try {
+			people = ips.find(phone);
+			json = JSON.toJSONString(people);
+		}catch (Exception e) {
+			json = "wzd";
+		}
+		return json;	
 	}
 	
 }

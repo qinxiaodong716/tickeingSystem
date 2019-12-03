@@ -50,7 +50,7 @@
             position: relative;
             padding: 20px 18px 0;
             left: 900px;
-            top: -550px;
+            top: -600px;
             height: 302px;
             width: 364px;
             background-color: white;
@@ -127,7 +127,7 @@
         </div>
     </div>
     <div class="zh-zhong">
-        <img src="assets/image/plane.jpg" alt="" style="height: 650px;">
+        <img src="assets/image/plane.jpg" alt="" style="height: 675px;">
         <div class="zh-zhong-right">
             <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
                 <ul class="layui-tab-title">

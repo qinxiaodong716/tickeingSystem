@@ -125,10 +125,11 @@ public class AdminController {
 		String password = request.getParameter("password");
 		String phone = request.getParameter("phone");
 		Sales sales = new Sales(branchId, salesName, password, phone);
+		int i = iss.saveOrUpdate(sales);
 		ModelAndView modelAndView = new ModelAndView("admin/sales");
 		List<Sales> findAll = iss.findAll();
 		modelAndView.addObject("findAll",findAll);
-		if(iss.saveOrUpdate(sales)<1) {
+		if(i<1) {
 			modelAndView.addObject("start","300");
 		}else {
 			modelAndView.addObject("start","200");
@@ -145,9 +146,10 @@ public class AdminController {
 		String telephone = request.getParameter("telephone");
 		String address = request.getParameter("address");
 		Branch branch = new Branch(branchName, address, telephone, province, city);
+		int i = ibs.saveOrUpdate(branch);
 		ModelAndView modelAndView = new ModelAndView("admin/branch");
 		List<Branch> findAll = ibs.findAll();
-		if(ibs.saveOrUpdate(branch)<0) {
+		if(i<0) {
 			modelAndView.addObject("start","300");
 		}else {
 			modelAndView.addObject("start","200");
@@ -165,7 +167,6 @@ public class AdminController {
 		int businessClassSeats = Integer.parseInt(request.getParameter("businessClassSeats"));
 		int economyClassSeats = Integer.parseInt(request.getParameter("economyClassSeats"));
 		AirplaneModel airplaneModel = new AirplaneModel(model, maxSailLength, firstClassSeats, businessClassSeats, economyClassSeats);
-		System.out.println(model+","+maxSailLength+","+firstClassSeats+","+ businessClassSeats+","+economyClassSeats);
 		//持久化
 		iams.save(airplaneModel);
 		//返回插入后的飞机信息

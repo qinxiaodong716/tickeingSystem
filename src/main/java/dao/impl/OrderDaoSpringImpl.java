@@ -50,7 +50,7 @@ public class OrderDaoSpringImpl implements IOrderDao{
 				"on s.sales_id = t.sales_id " +
 				"where o.order_id=?",
 				new Object[] {id},
-				new BeanPropertyRowMapper<>(Order.class));
+				new BeanPropertyRowMapper<Order>(Order.class));
 	}
 
 	@Override

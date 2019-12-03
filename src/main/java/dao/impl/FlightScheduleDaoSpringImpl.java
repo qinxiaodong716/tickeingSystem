@@ -54,7 +54,6 @@ public class FlightScheduleDaoSpringImpl implements IFlightSchedulerDao{
 
 	@Override
 	public int saveOrUpdate(FlightScheduler fs) {
-		System.out.println(fs);
 		return jdbcTemplate.update("insert into flight_scheduler(flight_number,start_date,end_date,from_city,to_city,departure_time,arrival_time,airplane,scheduler,sail_length,basic_price) values(?,?,?,?,?,?,?,?,?,?,?)",
 				new Object[] {fs.getFlightNumber(),fs.getstartDate(),fs.getendDate(),fs.getFromCity(),fs.getToCity(),fs.getDepartureTime(),fs.getArrivalTime(),fs.getAirplane(),fs.getScheduler(),fs.getSailLength(),fs.getBasicPrice()});
 	}
